@@ -3,10 +3,8 @@
 import React, { useState } from 'react';
 import { 
   Skull, AlertTriangle, Brain, Heart, 
-  Clock, User, MapPin, Activity,
-  Shield, TrendingUp, Bell
+  User, Activity
 } from 'lucide-react';
-import { Alert, AlertTitle } from '@/components/ui/alert';
 
 // Smoke Background Component
 const SmokeBackground = () => {
@@ -45,7 +43,12 @@ const SmokeBackground = () => {
 };
 
 // Glowing Text Component
-const GlowingText = ({ children, color = "red" }) => (
+interface GlowingTextProps {
+  children: React.ReactNode;
+  color?: string;
+}
+
+const GlowingText: React.FC<GlowingTextProps> = ({ children, color = "red" }) => (
   <span className={`relative inline-block animate-glow text-${color}-500`}>
     <span className="relative z-10">{children}</span>
     <span className={`absolute inset-0 blur-lg bg-${color}-500/30 animate-pulse`}></span>
@@ -53,7 +56,11 @@ const GlowingText = ({ children, color = "red" }) => (
 );
 
 // Danger Level Indicator
-const DangerLevel = ({ aqi }) => {
+interface DangerLevelProps {
+  aqi: number;
+}
+
+const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
   const getColor = () => {
     if (aqi > 300) return 'red';
     if (aqi > 200) return 'orange';
@@ -77,7 +84,7 @@ const DangerLevel = ({ aqi }) => {
 };
 
 // Component for real-time damage stats
-const DamageStats = () => (
+const DamageStats: React.FC = () => (
   <div className="bg-gray-800/70 backdrop-blur-xl rounded-lg p-4 border border-red-500/30">
     <h2 className="text-lg font-semibold mb-4 text-red-400">
       Damage Accumulating Now:
@@ -91,7 +98,13 @@ const DamageStats = () => (
 );
 
 // Individual damage stat row
-const DamageStat = ({ icon, label, value }) => (
+interface DamageStatProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}
+
+const DamageStat: React.FC<DamageStatProps> = ({ icon, label, value }) => (
   <div className="flex justify-between items-center">
     <div className="flex items-center gap-2">
       {icon}
@@ -102,7 +115,14 @@ const DamageStat = ({ icon, label, value }) => (
 );
 
 // Family impact card component
-const FamilyImpactCard = ({ icon: Icon, title, impacts, borderColor }) => (
+interface FamilyImpactCardProps {
+  icon: React.ElementType;
+  title: string;
+  impacts: string[];
+  borderColor: string;
+}
+
+const FamilyImpactCard: React.FC<FamilyImpactCardProps> = ({ icon: Icon, title, impacts, borderColor }) => (
   <div className={`bg-gray-800/70 backdrop-blur-xl rounded-lg p-4 border ${borderColor}`}>
     <div className="flex items-center gap-2 mb-3">
       <Icon className={`w-6 h-6 ${borderColor.replace('border-', 'text-').replace('/30', '')}`} />
@@ -119,7 +139,11 @@ const FamilyImpactCard = ({ icon: Icon, title, impacts, borderColor }) => (
 );
 
 // Family impact section
-const FamilyImpactSection = ({ aqi }) => (
+interface FamilyImpactSectionProps {
+  aqi: number;
+}
+
+const FamilyImpactSection: React.FC<FamilyImpactSectionProps> = ({ aqi }) => (
   <section className="pt-8">
     <h2 className="text-2xl font-bold mb-6 text-center">
       <GlowingText>Your Family is at Risk</GlowingText>
@@ -149,14 +173,19 @@ const FamilyImpactSection = ({ aqi }) => (
     </div>
   </section>
 );
+
 // Share button component
-const ShareButton = ({ text }) => {
-  text = text || "Warn your loved ones now";
+interface ShareButtonProps {
+  text?: string;
+}
+
+const ShareButton: React.FC<ShareButtonProps> = ({ text }) => {
+  const buttonText = text || "Warn your loved ones now";
   const handleShare = () => {
-    const text = encodeURIComponent(
+    const shareText = encodeURIComponent(
       "⚠️ The air we're breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it's affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
     );
-    const whatsappUrl = `https://api.whatsapp.com/send/?text=${text}&type=custom_url&app_absent=0`;
+    const whatsappUrl = `https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -168,16 +197,15 @@ const ShareButton = ({ text }) => {
       <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 animate-pulse"></div>
       <span className="relative flex items-center gap-2">
         <AlertTriangle className="w-6 h-6" />
-        {text}
+        {buttonText}
       </span>
     </button>
   );
 };
 
 // Main Dashboard Component
-const ToxicAirDashboard = () => {
-  const [aqi, setAqi] = useState(285);
-  const [selectedTab, setSelectedTab] = useState('now');
+const ToxicAirDashboard: React.FC = () => {
+  const [aqi] = useState(285);
   
   return (
     <div className="min-h-screen relative bg-gray-900 text-white">
