@@ -58,6 +58,10 @@
   }
 }
 
+body {
+  line-height: 1.7;
+}
+
 @layer base {
   * {
     @apply border-border;

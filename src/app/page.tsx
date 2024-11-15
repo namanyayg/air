@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Skull, AlertTriangle, Brain, Heart, 
-  User, Activity
+  User, Activity, Clock 
 } from 'lucide-react';
 
 // Smoke Background Component
@@ -20,7 +20,7 @@ const SmokeBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-gray-800/30 to-transparent">
-        <div className="absolute inset-0 animate-pulse opacity-20 bg-gradient-to-t from-red-900/20 via-orange-900/20 to-transparent"></div>
+        <div className="absolute inset-0 opacity-20 bg-gradient-to-t from-red-900/20 via-orange-900/20 to-transparent"></div>
       </div>
       {smokePositions.map((pos, i) => (
         <div
@@ -103,20 +103,6 @@ const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
   );
 };
 
-// Component for real-time damage stats
-const DamageStats: React.FC = () => (
-  <div className="bg-gray-800/70 backdrop-blur-xl rounded-lg p-4 border border-red-500/30">
-    <h2 className="text-lg font-semibold mb-4 text-red-400">
-      Damage Accumulating Now:
-    </h2>
-    <div className="space-y-3">
-      <DamageStat icon={<Brain className="w-5 h-5 text-red-500" />} label="Brain Aging" value="+2.3 hours" />
-      <DamageStat icon={<Heart className="w-5 h-5 text-red-500" />} label="Heart Strain" value="Critical" />
-      <DamageStat icon={<Activity className="w-5 h-5 text-red-500" />} label="Lung Capacity" value="-40%" />
-    </div>
-  </div>
-);
-
 // Individual damage stat row
 interface DamageStatProps {
   icon: React.ReactNode;
@@ -166,7 +152,7 @@ interface FamilyImpactSectionProps {
 const FamilyImpactSection: React.FC<FamilyImpactSectionProps> = ({ aqi }) => (
   <section className="pt-8">
     <h2 className="text-2xl font-bold mb-6 text-center">
-      <GlowingText>Your Family is at Risk</GlowingText>
+      Your Family is at Risk
     </h2>
     
     <div className="space-y-4">
@@ -212,7 +198,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ text }) => {
   return (
     <button 
       onClick={handleShare}
-      className="w-full bg-red-500 hover:bg-red-600 text-white py-4 px-6 rounded-lg font-bold text-lg flex items-center justify-center gap-2 shadow-lg relative overflow-hidden group"
+      className="w-full bg-red-500 hover:bg-red-600 text-white my-4 py-4 px-6 rounded-lg font-bold text-lg flex items-center justify-center gap-2 shadow-lg relative overflow-hidden group"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 animate-pulse"></div>
       <span className="relative flex items-center gap-2">
@@ -223,9 +209,194 @@ const ShareButton: React.FC<ShareButtonProps> = ({ text }) => {
   );
 };
 
+// New Stats Counter Component
+interface StatsCounterProps {
+  startTime: number;
+}
+
+const StatsCounter: React.FC<StatsCounterProps> = ({ startTime }) => {
+  const [stats, setStats] = useState({
+    seconds: 0,
+    breaths: 0,
+    deaths: 0,
+    loss: 0,
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const secondsElapsed = (Date.now() - startTime) / 1000;
+      
+      // Average person takes 12-16 breaths per minute
+      const breathsTaken = Math.floor(secondsElapsed * (14/60));
+      
+      // 2.1 million deaths per year converted to deaths per second
+      const deathsPerSecond = 2100000 / (365 * 24 * 60 * 60);
+      const deaths = deathsPerSecond * secondsElapsed;
+      
+      // ₹31,07,78,26,32,000 per year converted to rupees per second
+      const lossPerSecond = 310778263200 / (365 * 24 * 60 * 60);
+      const loss = lossPerSecond * secondsElapsed;
+
+      setStats({ 
+        seconds: Math.floor(secondsElapsed),
+        breaths: breathsTaken, 
+        deaths, 
+        loss 
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [startTime]);
+
+  const formatIndianCurrency = (num: number) => {
+    const formatted = Math.floor(num).toString();
+    let result = '';
+    let count = 0;
+    
+    for (let i = formatted.length - 1; i >= 0; i--) {
+      if (count === 3 && result.length === 3) {
+        result = ',' + result;
+      } else if (count === 5 && result.length >= 6) {
+        result = ',' + result;
+      } else if (count > 5 && count % 2 === 1 && result.length > 7) {
+        result = ',' + result;
+      }
+      result = formatted[i] + result;
+      count++;
+    }
+    return '₹' + result;
+  };
+
+  return (
+    <div className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30 mb-6">
+      <h2 className="text-lg font-semibold mb-4 text-red-400">
+        Damage Accumulating Now:
+      </h2>
+      <div className="space-y-3">
+        <DamageStat 
+          icon={<Clock className="w-5 h-5 text-red-500" />} 
+          label="Seconds on Site" 
+          value={<span className="font-mono">{stats.seconds.toLocaleString()}</span>} 
+        />
+        <DamageStat 
+          icon={<Activity className="w-5 h-5 text-red-500" />} 
+          label="Toxic Breaths Taken" 
+          value={<span className="font-mono">{stats.breaths.toLocaleString()}</span>} 
+        />
+        <DamageStat 
+          icon={<Skull className="w-5 h-5 text-red-500" />} 
+          label="Indians Died" 
+          value={<span className="font-mono">{stats.deaths.toFixed(1)}</span>} 
+        />
+      </div>
+    </div>
+  );
+};
+
+// Hope Card Component
+interface HopeCardProps {
+  icon: React.ElementType;
+  title: string;
+  description: React.ReactNode;
+}
+
+const HopeCard: React.FC<HopeCardProps> = ({ icon: Icon, title, description }) => (
+  <div className="bg-emerald-900/3 backdrop-blur-xl rounded-lg p-4 border border-emerald-500/30">
+    <div className="flex items-center gap-2 mb-3">
+      <Icon className="w-6 h-6 text-emerald-500" />
+      <h3 className="text-lg font-bold text-emerald-400">{title}</h3>
+    </div>
+    <p className="text-gray-200">{description}</p>
+  </div>
+);
+
+// Hope Section Component
+const HopeSection: React.FC = () => {
+  const shareText = encodeURIComponent(
+    "⚠️ The air we're breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it's affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
+  );
+
+  return (
+    <section className="pt-8">
+      <h2 className="text-2xl font-bold mb-6 text-center">
+        There is still hope&hellip;
+      </h2>
+      
+      <div className="space-y-4">
+        <p className="text-gray-200 text-center">
+          The problem isn't natural - it's caused by humans.<br />
+          That means we can fix it through action.
+        </p>
+        
+        <div className="space-y-4">
+          <HopeCard
+            icon={User}
+            title="What You Can Do Today"
+            description={<>
+              • <a href={`https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`} className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Share this site</a> with family & friends<br />
+              • Install air purifiers at home & office<br />
+              • Wear N95 masks when outdoors<br />
+              • Connect with local NGOs to drive change<br />
+              • Support clean air initiatives in your area
+            </>}
+          />
+          
+          <HopeCard
+            icon={Brain}
+            title="Join the Movement"
+            description={<>
+              • <a href="https://a-pag.org" className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">A-PAG</a>: Works with government to implement air pollution solutions<br />
+              • <a href="https://www.cleanairfund.org/where-we-work/india/" className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Fund</a>: Partners with government and business at every level<br />
+              • <a href="https://cleanairasia.org/india/" className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Asia</a>: Provides scientific input for better air quality
+            </>}
+          />
+
+          <HopeCard
+            icon={AlertTriangle}
+            title="What Causes Air Pollution?"
+            description={<>
+              • Burning of coal, petrol, diesel & gas in industries<br />
+              • Vehicle emissions & increasing traffic<br />
+              • Large-scale construction activity<br />
+              • Crop burning in neighboring states<br />
+              • Smoke from rural kitchens & biomass burning
+            </>}
+          />
+          
+          <ShareButton text="Share With Your Family" />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Footer Component
+const Footer: React.FC = () => (
+  <footer className="relative mt-16 border-t border-gray-800">
+    <div className="w-full bg-black/30 backdrop-blur-sm">
+      <div className="max-w-md mx-auto text-center py-8 px-4 text-gray-400 text-sm">
+        <div className="space-y-3">
+          <p>
+            Made by <a href="https://x.com/NamanyayG" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Namanyay Goel</a> in New Delhi
+          </p>
+          <p>
+            "Air" is Non-Profit and is fully open source. Contributions & ideas are welcome!
+          </p>
+          <p className="text-gray-500">जनहित में जारी © 2024</p>
+          <div className="space-x-4 mt-2">
+            <a href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
+          </div>
+          <p className="text-gray-300 mt-4">Jai Hind 🇮🇳</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+);
+
 // Main Dashboard Component
 const ToxicAirDashboard: React.FC = () => {
   const [aqi] = useState(285);
+  const [startTime] = useState(Date.now());
   
   return (
     <div className="min-h-screen relative bg-gray-900 text-white">
@@ -234,18 +405,24 @@ const ToxicAirDashboard: React.FC = () => {
       <div className="relative max-w-md mx-auto p-4 space-y-6">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">
-            <GlowingText>Toxic Air Alert</GlowingText>
+            Air Alert
           </h1>
+          <p className="text-center my-4">
+            <span className="text-gray-100">Our country is in danger.</span><br />
+            <span className="text-gray-300">The first step is <b>awareness</b>.</span>
+          </p>
           <DangerLevel aqi={aqi} />
+          <StatsCounter startTime={startTime} />
         </div>
 
         <div className="space-y-4">
-          <DamageStats />
           <ShareButton text="Save lives & Share now" />
           <FamilyImpactSection aqi={aqi} />
+          <ShareButton text="Warn your loved ones now" />
+          <HopeSection />
         </div>
 
-        <ShareButton text="Warn your loved ones now" />
+        <Footer />
       </div>
     </div>
   );
