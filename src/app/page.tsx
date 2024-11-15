@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 // Smoke Background Component
-const SmokeBackground = () => {
+const SmokeBackground: React.FC = () => {
   // Predefined positions for smoke elements
   const smokePositions = [
     { left: '20%', top: '30%' },
@@ -344,6 +344,49 @@ const HopeSection: React.FC = () => {
   );
 };
 
+// Sources Section Component
+const SourcesSection: React.FC = () => (
+  <section className="mt-8 bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
+    <details className="text-sm text-gray-400">
+      <summary className="cursor-pointer hover:text-gray-300">Sources</summary>
+      
+      <div className="space-y-4 pl-2">
+        <div>
+          <h4 className="text-gray-300 mb-2">News Articles</h4>
+          <ul className="space-y-1">
+            <li>
+              <a href="https://economictimes.indiatimes.com/news/india/air-pollution-every-day-464-children-in-india-die-report/articleshow/111133693.cms" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="hover:text-gray-300">
+                Air pollution: Every day, 464 children in India die: Report - Economic Times, 2024
+              </a>
+            </li>
+            <li>
+              <a href="https://www.bc.edu/bc-web/bcnews/nation-world-society/international/air-pollution-in-inda.html" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="hover:text-gray-300">
+                The human toll of air pollution in India - Boston College News, 2021
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-gray-300 mb-2">Research Studies</h4>
+          <ul className="space-y-1">
+            <li>Zhang et al. (2018). &quot;The impact of exposure to air pollution on cognitive performance.&quot; <i>PNAS</i></li>
+            <li>Chen et al. (2013). &quot;Evidence on the impact of sustained exposure to air pollution on life expectancy.&quot; <i>PNAS</i></li>
+            <li>WHO Global Air Quality Guidelines (2021)</li>
+            <li>Ebenstein et al. (2016). &quot;The Long-Run Economic Consequences of High-Stakes Examinations&quot;</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
+);
+
 // Footer Component
 const Footer: React.FC = () => (
   <footer className="relative mt-16 border-t border-gray-800">
@@ -369,8 +412,8 @@ const Footer: React.FC = () => (
 
 // Main Dashboard Component
 const ToxicAirDashboard: React.FC = () => {
-  const [aqi] = useState(285);
-  const [startTime] = useState(Date.now());
+  const [aqi] = useState<number>(285);
+  const [startTime] = useState<number>(Date.now());
   
   return (
     <div className="min-h-screen relative bg-gray-900 text-white">
@@ -394,6 +437,7 @@ const ToxicAirDashboard: React.FC = () => {
           <FamilyImpactSection aqi={aqi} />
           <ShareButton text="Warn your loved ones now" />
           <HopeSection />
+          <SourcesSection />
         </div>
 
         <Footer />
