@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Air Alert | Protect Your Family's Health",
   description: "⚠️ See how toxic air is affecting your family's health right now. See immediate impacts on children's development and elderly health. Act now to protect your loved ones.",
   keywords: "air quality, health impact, family safety, air pollution, children's health, elderly care, air toxicity",
+  icons: {
+    icon: "/favicon.png",
+  },
+  metadataBase: new URL("https://air.nmn.gl"),
   openGraph: {
     title: "Toxic Air Alert | Protect Your Family's Health",
     description: "See how toxic air is affecting your family's health right now. Real-time monitoring of health impacts on children and elderly.",
