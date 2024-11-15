@@ -237,10 +237,9 @@ const AgeImpact: React.FC<AgeImpactProps> = ({ aqi }) => {
             impacts={ageGroups[selectedAge as keyof typeof ageGroups].impacts}
             borderColor={ageGroups[selectedAge as keyof typeof ageGroups].color}
           />
-          
+          <ShareButton text="Protect Your Loved Ones - Share Now" />
         </div>
       )}
-      <ShareButton text="Protect Your Loved Ones - Share Now" />
     </section>
   );
 };
@@ -349,6 +348,67 @@ const HopeCard: React.FC<HopeCardProps> = ({ icon: Icon, title, description }) =
     <p className="text-gray-200">{description}</p>
   </div>
 );
+
+// Add new component after AgeImpact and before HopeSection
+const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
+  const impacts = {
+    cigarettes: {
+      icon: Activity,
+      title: "Cigarette Equivalent",
+      value: `${Math.floor(aqi/10)} cigarettes`,
+      description: "Your lungs are suffering damage equal to chain smoking"
+    },
+    brain: {
+      icon: Brain,
+      title: "Brain Right Now",
+      value: `${Math.floor(aqi/25)} hours older`,
+      description: "Your cognitive function is rapidly declining"
+    },
+    life: {
+      icon: Clock,
+      title: "Life Impact",
+      value: `${Math.floor(aqi/20)} hours lost`,
+      description: "Each day in this air permanently shortens your life"
+    },
+    lungs: {
+      icon: Heart,
+      title: "Your Lungs",
+      value: `${Math.max(0, 100 - (aqi/4))}% capacity`,
+      description: "Your respiratory system is fighting to survive"
+    }
+  };
+
+  return (
+    <section className="pt-8">
+      <h2 className="text-2xl font-bold mb-2 text-center">
+        Today's Toxic Damage
+      </h2>
+      <p className="text-center text-red-500 mb-6">
+        Every hour in this air is destroying your body
+      </p>
+      
+      <div className="grid grid-cols-1 gap-4">
+        {Object.entries(impacts).map(([key, impact]) => (
+          <div 
+            key={key}
+            className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <impact.icon className="w-6 h-6 text-red-500" />
+              <h3 className="text-lg font-bold">{impact.title}</h3>
+            </div>
+            <div className="text-2xl font-bold text-red-400 mb-2">
+              {impact.value}
+            </div>
+            <p className="text-gray-300">
+              {impact.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 // Hope Section Component
 const HopeSection: React.FC = () => {
@@ -548,6 +608,8 @@ const ToxicAirDashboard: React.FC = () => {
 
         <div className="space-y-4">
           <AgeImpact aqi={aqi} />
+          <DailyImpactSection aqi={aqi} />
+          <ShareButton text="Share the truth" />
           <HopeSection />
           <SourcesSection />
           <Footer />
