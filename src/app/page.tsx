@@ -219,7 +219,6 @@ const StatsCounter: React.FC<StatsCounterProps> = ({ startTime }) => {
     seconds: 0,
     breaths: 0,
     deaths: 0,
-    loss: 0,
   });
 
   useEffect(() => {
@@ -232,40 +231,16 @@ const StatsCounter: React.FC<StatsCounterProps> = ({ startTime }) => {
       // 2.1 million deaths per year converted to deaths per second
       const deathsPerSecond = 2100000 / (365 * 24 * 60 * 60);
       const deaths = deathsPerSecond * secondsElapsed;
-      
-      // ₹31,07,78,26,32,000 per year converted to rupees per second
-      const lossPerSecond = 310778263200 / (365 * 24 * 60 * 60);
-      const loss = lossPerSecond * secondsElapsed;
 
       setStats({ 
         seconds: Math.floor(secondsElapsed),
         breaths: breathsTaken, 
         deaths, 
-        loss 
       });
     }, 100);
 
     return () => clearInterval(interval);
   }, [startTime]);
-
-  const formatIndianCurrency = (num: number) => {
-    const formatted = Math.floor(num).toString();
-    let result = '';
-    let count = 0;
-    
-    for (let i = formatted.length - 1; i >= 0; i--) {
-      if (count === 3 && result.length === 3) {
-        result = ',' + result;
-      } else if (count === 5 && result.length >= 6) {
-        result = ',' + result;
-      } else if (count > 5 && count % 2 === 1 && result.length > 7) {
-        result = ',' + result;
-      }
-      result = formatted[i] + result;
-      count++;
-    }
-    return '₹' + result;
-  };
 
   return (
     <div className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30 mb-6">
@@ -359,7 +334,6 @@ const HopeSection: React.FC = () => {
               • Vehicle emissions & increasing traffic<br />
               • Large-scale construction activity<br />
               • Crop burning in neighboring states<br />
-              • Smoke from rural kitchens & biomass burning
             </>}
           />
           
