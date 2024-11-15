@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Air Quality Health Impact Dashboard",
@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "⚠️ Toxic Air Alert | Protect Your Family",
     description: "Real-time monitoring showing how toxic air affects your family's health. Act now to protect your loved ones.",
+    images: ["/twitter-image.png"],
   },
 };
 
