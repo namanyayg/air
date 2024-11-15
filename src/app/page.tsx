@@ -45,7 +45,7 @@ const SmokeBackground = () => {
 // Glowing Text Component
 interface GlowingTextProps {
   children: React.ReactNode;
-  color?: string;
+  color?: 'red' | 'orange' | 'yellow' | 'purple';
 }
 
 const GlowingText: React.FC<GlowingTextProps> = ({ children, color = "red" }) => {
@@ -59,7 +59,7 @@ const GlowingText: React.FC<GlowingTextProps> = ({ children, color = "red" }) =>
   return (
     <span className="relative inline-block animate-glow">
       <span className="relative z-10">{children}</span>
-      <span className={`absolute inset-0 blur-lg animate-pulse ${colorClasses[color as keyof typeof colorClasses]}`}></span>
+      <span className={`absolute inset-0 blur-lg animate-pulse ${colorClasses[color]}`}></span>
     </span>
   );
 };
@@ -107,7 +107,7 @@ const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
 interface DamageStatProps {
   icon: React.ReactNode;
   label: string;
-  value: string;
+  value: React.ReactNode;
 }
 
 const DamageStat: React.FC<DamageStatProps> = ({ icon, label, value }) => (
@@ -158,7 +158,7 @@ const FamilyImpactSection: React.FC<FamilyImpactSectionProps> = ({ aqi }) => (
     <div className="space-y-4">
       <FamilyImpactCard
         icon={User}
-        title="Children's Impact"
+        title="Children&apos;s Impact"
         borderColor="border-orange-500/30"
         impacts={[
           `Brain development slowed by ${(aqi/100).toFixed(1)} months`,
@@ -189,7 +189,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ text }) => {
   const buttonText = text || "Warn your loved ones now";
   const handleShare = () => {
     const shareText = encodeURIComponent(
-      "⚠️ The air we're breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it's affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
+      "⚠️ The air we&apos;re breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it&apos;s affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
     );
     const whatsappUrl = `https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`;
     window.open(whatsappUrl, '_blank');
@@ -313,7 +313,7 @@ const HopeCard: React.FC<HopeCardProps> = ({ icon: Icon, title, description }) =
 // Hope Section Component
 const HopeSection: React.FC = () => {
   const shareText = encodeURIComponent(
-    "⚠️ The air we're breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it's affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
+    "⚠️ The air we&apos;re breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it&apos;s affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
   );
 
   return (
@@ -324,7 +324,7 @@ const HopeSection: React.FC = () => {
       
       <div className="space-y-4">
         <p className="text-gray-200 text-center">
-          The problem isn't natural - it's caused by humans.<br />
+          The problem isn&apos;t natural - it&apos;s caused by humans.<br />
           That means we can fix it through action.
         </p>
         
@@ -345,9 +345,9 @@ const HopeSection: React.FC = () => {
             icon={Brain}
             title="Join the Movement"
             description={<>
-              • <a href="https://a-pag.org" className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">A-PAG</a>: Works with government to implement air pollution solutions<br />
-              • <a href="https://www.cleanairfund.org/where-we-work/india/" className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Fund</a>: Partners with government and business at every level<br />
-              • <a href="https://cleanairasia.org/india/" className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Asia</a>: Provides scientific input for better air quality
+              • <a href="https://a-pag.org" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">A-PAG</a>: Works with government to implement air pollution solutions<br />
+              • <a href="https://www.cleanairfund.org/where-we-work/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Fund</a>: Partners with government and business at every level<br />
+              • <a href="https://cleanairasia.org/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Asia</a>: Provides scientific input for better air quality
             </>}
           />
 
@@ -380,7 +380,7 @@ const Footer: React.FC = () => (
             Made by <a href="https://x.com/NamanyayG" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Namanyay Goel</a> in New Delhi
           </p>
           <p>
-            "Air" is Non-Profit and is fully open source. Contributions & ideas are welcome!
+            &quot;Air&quot; is Non-Profit and is fully open source. Contributions & ideas are welcome!
           </p>
           <p className="text-gray-500">जनहित में जारी © 2024</p>
           <div className="space-x-4 mt-2">
