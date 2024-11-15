@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.jpg", // You'll need to add this image
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Air Quality Health Impact Dashboard",
@@ -41,6 +42,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${dmSans.variable} font-sans antialiased`}>
         {children}
+        <GoogleAnalytics gaId="G-NQXS67XNGL" />
       </body>
     </html>
   );
