@@ -48,12 +48,21 @@ interface GlowingTextProps {
   color?: string;
 }
 
-const GlowingText: React.FC<GlowingTextProps> = ({ children, color = "red" }) => (
-  <span className={`relative inline-block animate-glow text-${color}-500`}>
-    <span className="relative z-10">{children}</span>
-    <span className={`absolute inset-0 blur-lg bg-${color}-500/30 animate-pulse`}></span>
-  </span>
-);
+const GlowingText: React.FC<GlowingTextProps> = ({ children, color = "red" }) => {
+  const colorClasses = {
+    red: "text-red-500 bg-red-500/30",
+    orange: "text-orange-500 bg-orange-500/30",
+    yellow: "text-yellow-500 bg-yellow-500/30",
+    purple: "text-purple-500 bg-purple-500/30"
+  };
+
+  return (
+    <span className="relative inline-block animate-glow">
+      <span className="relative z-10">{children}</span>
+      <span className={`absolute inset-0 blur-lg animate-pulse ${colorClasses[color as keyof typeof colorClasses]}`}></span>
+    </span>
+  );
+};
 
 // Danger Level Indicator
 interface DangerLevelProps {
@@ -61,21 +70,32 @@ interface DangerLevelProps {
 }
 
 const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
-  const getColor = () => {
-    if (aqi > 300) return 'red';
-    if (aqi > 200) return 'orange';
-    return 'yellow';
+  const getColorClasses = () => {
+    if (aqi > 300) return {
+      bg: "bg-red-500/20",
+      text: "text-red-500"
+    };
+    if (aqi > 200) return {
+      bg: "bg-orange-500/20",
+      text: "text-orange-500"
+    };
+    return {
+      bg: "bg-yellow-500/20",
+      text: "text-yellow-500"
+    };
   };
+
+  const colors = getColorClasses();
 
   return (
     <div className="relative flex items-center justify-center h-32 mb-6">
-      <div className={`absolute w-32 h-32 bg-${getColor()}-500/20 rounded-full blur-xl animate-pulse`} />
+      <div className={`absolute w-32 h-32 ${colors.bg} rounded-full blur-xl animate-pulse`} />
       <div className="relative text-center">
-        <Skull className={`w-12 h-12 text-${getColor()}-500 mx-auto mb-2 animate-pulse`} />
+        <Skull className={`w-12 h-12 ${colors.text} mx-auto mb-2 animate-pulse`} />
         <div className="text-2xl font-bold text-white">
           Toxicity Level
         </div>
-        <div className={`text-4xl font-bold text-${getColor()}-500`}>
+        <div className={`text-4xl font-bold ${colors.text}`}>
           {aqi}
         </div>
       </div>
