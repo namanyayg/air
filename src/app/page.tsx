@@ -149,10 +149,20 @@ interface AgeImpactProps {
   aqi: number;
 }
 
+type AgeGroups = {
+  [key: string]: {
+    title: string;
+    color: string;
+    icon: React.ElementType;
+    impacts: string[];
+    emotional: string;
+  }
+}
+
 const AgeImpact: React.FC<AgeImpactProps> = ({ aqi }) => {
   const [selectedAge, setSelectedAge] = useState<string>('');
 
-  const ageGroups = {
+  const ageGroups: AgeGroups = {
     young: {
       title: "Young Adults (18-24)",
       color: "border-orange-500/30",
@@ -184,7 +194,7 @@ const AgeImpact: React.FC<AgeImpactProps> = ({ aqi }) => {
         "Accelerated memory loss equivalent to aging 3 extra years",
         "Each month reduces your healthy retirement years by 2 months",
       ],
-      emotional: "You've worked hard all your life. Don't let toxic air rob you of your golden years."
+      emotional: "You&apos;ve worked hard all your life. Don&apos;t let toxic air rob you of your golden years."
     },
     senior: {
       title: "Seniors (65+)",
@@ -227,15 +237,15 @@ const AgeImpact: React.FC<AgeImpactProps> = ({ aqi }) => {
           
           <div>
             <p className="text-red-500 text-center text-lg">
-              {ageGroups[selectedAge as keyof typeof ageGroups].emotional}
+              {ageGroups[selectedAge].emotional}
             </p>
           </div>
           
           <FamilyImpactCard
-            icon={ageGroups[selectedAge as keyof typeof ageGroups].icon}
-            title={ageGroups[selectedAge as keyof typeof ageGroups].title}
-            impacts={ageGroups[selectedAge as keyof typeof ageGroups].impacts}
-            borderColor={ageGroups[selectedAge as keyof typeof ageGroups].color}
+            icon={ageGroups[selectedAge].icon}
+            title={ageGroups[selectedAge].title}
+            impacts={ageGroups[selectedAge].impacts}
+            borderColor={ageGroups[selectedAge].color}
           />
           <ShareButton text="Protect Your Loved Ones - Share Now" />
         </div>
@@ -385,7 +395,7 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
   return (
     <section className="pt-8">
       <h2 className="text-2xl font-bold mb-2 text-center">
-        Today's Health Impact
+        Today&apos;s Health Impact
       </h2>
       <p className="text-center text-red-500 mb-6">
         Current air quality is affecting your body
@@ -437,8 +447,8 @@ const HopeSection: React.FC = () => {
             icon={User}
             title="What You Can Do Today"
             description={<>
-              • <a href={`https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`} className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Share this site</a> with family & friends<br />
-              • Install air purifiers at home & office<br />
+              • <a href={`https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`} className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Share this site</a> with family &amp; friends<br />
+              • Install air purifiers at home &amp; office<br />
               • Wear N95 masks when outdoors<br />
               • Connect with local NGOs to drive change<br />
               • Support clean air initiatives in your area
@@ -459,8 +469,8 @@ const HopeSection: React.FC = () => {
             icon={AlertTriangle}
             title="What Causes Air Pollution?"
             description={<>
-              • Burning of coal, petrol, diesel & gas in industries<br />
-              • Vehicle emissions & increasing traffic<br />
+              • Burning of coal, petrol, diesel &amp; gas in industries<br />
+              • Vehicle emissions &amp; increasing traffic<br />
               • Large-scale construction activity<br />
               • Crop burning in neighboring states<br />
             </>}
@@ -578,7 +588,7 @@ const Footer: React.FC = () => (
             Made by <a href="https://x.com/NamanyayG" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Namanyay Goel</a> in New Delhi
           </p>
           <p>
-            &quot;Air&quot; is Non-Profit and is fully open source. Contributions & ideas are welcome!
+            &quot;Air&quot; is Non-Profit and is fully open source. Contributions &amp; ideas are welcome!
           </p>
           <p className="text-gray-500">जनहित में जारी © 2024</p>
           <p className="text-gray-300 mt-4">Jai Hind 🇮🇳</p>
@@ -589,25 +599,25 @@ const Footer: React.FC = () => (
 );
 
 // Add new component for accurate pollution metrics
-interface PollutionMetricsProps {
-  aqi: number;
-}
+// interface PollutionMetricsProps {
+//   aqi: number;
+// }
 
-const PollutionMetrics: React.FC<PollutionMetricsProps> = ({ aqi }) => {
-  // Calculations based on WHO Air Quality Guidelines
-  const mortalityRisk = (aqi / 10) * 0.6; // % increase in mortality risk
-  const hospitalizations = (aqi / 15) * 1.2; // % increase in hospitalizations
+// const PollutionMetrics: React.FC<PollutionMetricsProps> = ({ aqi }) => {
+//   // Calculations based on WHO Air Quality Guidelines
+//   const mortalityRisk = (aqi / 10) * 0.6; // % increase in mortality risk
+//   const hospitalizations = (aqi / 15) * 1.2; // % increase in hospitalizations
   
-  return (
-    <div className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30 mb-6">
-      <h3 className="text-lg font-bold mb-4">Current Health Risks</h3>
-      <div className="space-y-2">
-        <p>Mortality Risk: +{mortalityRisk.toFixed(1)}%</p>
-        <p>Hospital Admissions: +{hospitalizations.toFixed(1)}%</p>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30 mb-6">
+//       <h3 className="text-lg font-bold mb-4">Current Health Risks</h3>
+//       <div className="space-y-2">
+//         <p>Mortality Risk: +{mortalityRisk.toFixed(1)}%</p>
+//         <p>Hospital Admissions: +{hospitalizations.toFixed(1)}%</p>
+//       </div>
+//     </div>
+//   );
+// };
 
 // Main Dashboard Component
 const ToxicAirDashboard: React.FC = () => {
