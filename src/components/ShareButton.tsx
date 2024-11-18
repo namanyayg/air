@@ -9,12 +9,26 @@ interface ShareButtonProps {
 
 export default function ShareButton({ text, color = 'green', icon: Icon = AlertTriangle }: ShareButtonProps) {
   const buttonText = text || "Warn your loved ones now";
-  const handleShare = () => {
-    const shareText = encodeURIComponent(
-      "Protect your family - See how our air is affecting our children and elderly RIGHT NOW! \n\nhttps://air.nmn.gl\n\nStay informed, stay safe!"
-    );
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
-    window.open(whatsappUrl, '_blank');
+  const handleShare = async () => {
+    const shareData = {
+      title: "Air Pollution Alert",
+      text: "Protect your family - See how our air is affecting our children and elderly RIGHT NOW! \n\nStay informed, stay safe!",
+      url: "https://air.nmn.gl"
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        const shareText = encodeURIComponent(
+          "Protect your family - See how our air is affecting our children and elderly RIGHT NOW! \n\nhttps://air.nmn.gl\n\nStay informed, stay safe!"
+        );
+        const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
+        window.open(whatsappUrl, '_blank');
+      }
+    } catch (err) {
+      console.error('Error sharing:', err);
+    }
   };
 
   return (
