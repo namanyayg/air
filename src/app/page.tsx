@@ -194,7 +194,7 @@ const AgeImpact: React.FC<AgeImpactProps> = ({ aqi }) => {
         "Accelerated memory loss equivalent to aging 3 extra years",
         "Each month reduces your healthy retirement years by 2 months",
       ],
-      emotional: "You&apos;ve worked hard all your life. Don&apos;t let toxic air rob you of your golden years."
+      emotional: "You have worked hard all your life. Do not let toxic air rob you of your golden years."
     },
     senior: {
       title: "Seniors (65+)",
@@ -322,11 +322,11 @@ const StatsCounter: React.FC<StatsCounterProps> = ({ startTime }) => {
         Damage Accumulating Now:
       </h2>
       <div className="space-y-3">
-        <DamageStat 
+        {/* <DamageStat 
           icon={<Clock className="w-5 h-5 text-red-500" />} 
           label="Seconds on Site" 
           value={<span className="font-mono">{stats.seconds.toLocaleString()}</span>} 
-        />
+        /> */}
         <DamageStat 
           icon={<Activity className="w-5 h-5 text-red-500" />} 
           label="Toxic Breaths Taken" 
@@ -383,13 +383,13 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
       value: `${Math.floor(aqi/25)} hours lost`,
       description: "Each day in severe pollution reduces life expectancy"
     },
-    lungs: {
-      icon: Heart,
-      title: "Lung Function",
-      // Based on EPA studies on PM2.5 and respiratory function
-      value: `${Math.max(0, 100 - (aqi/3))}% capacity`,
-      description: "Your current breathing capacity is reduced"
-    }
+    // lungs: {
+    //   icon: Heart,
+    //   title: "Lung Function",
+    //   // Based on EPA studies on PM2.5 and respiratory function
+    //   value: `${Math.max(0, 100 - (aqi/3))}% capacity`,
+    //   description: "Your current breathing capacity is reduced"
+    // }
   };
 
   return (
