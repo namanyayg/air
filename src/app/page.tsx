@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { 
-  Skull, Activity, Clock, Shield, Baby
+  Skull, Activity, Clock, Shield, Baby,
+  User
 } from 'lucide-react';
 // import GlowingText from '@/components/GlowingText';
 import StatsCounter from '@/components/StatsCounter';
@@ -119,7 +120,7 @@ const ToxicAirDashboard: React.FC = () => {
       <div className="relative max-w-md mx-auto p-4 space-y-6">
         <LocationAwareHeader />
         <StatsCounter startTime={startTime} />
-        <ShareButton text="Share the truth" />
+        <ShareButton text="Share with Family" />
         {/* <AQITable airData={airTableData} /> */}
         
         <div className="space-y-4">
@@ -130,7 +131,7 @@ const ToxicAirDashboard: React.FC = () => {
           <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
           <AgeImpact aqi={airQuality.aqi} />
           <DailyImpactSection aqi={airQuality.aqi} />
-          <ShareButton text="Share the truth" />
+          <ShareButton text="Share the Truth" color="emerald" icon={User} />
           <HopeSection />
           <SourcesSection />
           <Footer />

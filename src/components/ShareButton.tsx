@@ -11,7 +11,7 @@ export default function ShareButton({ text, color = 'red', icon: Icon = AlertTri
   const buttonText = text || "Warn your loved ones now";
   const handleShare = () => {
     const shareText = encodeURIComponent(
-      "⚠️ The air we&apos;re breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it&apos;s affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
+      "Protect your family - See how our air is affecting our children and elderly RIGHT NOW! \n\nhttps://air.nmn.gl\n\nStay informed, stay safe!"
     );
     const whatsappUrl = `https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`;
     window.open(whatsappUrl, '_blank');

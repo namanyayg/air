@@ -180,7 +180,7 @@ const LungComparison: React.FC = () => {
         />
       </div>
 
-      <ShareButton text="Protect Your Family Now" />
+      <ShareButton text="Share & Spread the Awareness" />
     </div>
   );
 };
