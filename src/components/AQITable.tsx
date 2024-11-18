@@ -78,7 +78,7 @@ const columns: ColumnDef<CityAQIData>[] = [
       </Button>
     ),
     cell: ({ row }) => {
-      const aqi = row.getValue("aqi");
+      const aqi = row.getValue("aqi") as number | string;
       let className = "font-medium";
       
       if (typeof aqi === 'number') {
