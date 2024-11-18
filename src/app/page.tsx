@@ -2,67 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { 
-  Skull, AlertTriangle, Brain, Heart, 
-  User, Activity, Clock 
+  Skull, Brain, Activity, Clock 
 } from 'lucide-react';
-
-// Smoke Background Component
-const SmokeBackground: React.FC = () => {
-  // Predefined positions for smoke elements
-  const smokePositions = [
-    { left: '20%', top: '30%' },
-    { left: '45%', top: '60%' },
-    { left: '70%', top: '25%' },
-    { left: '85%', top: '70%' },
-    { left: '10%', top: '80%' },
-  ];
-
-  return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-gray-800/30 to-transparent">
-        <div className="absolute inset-0 opacity-20 bg-gradient-to-t from-red-900/20 via-orange-900/20 to-transparent"></div>
-      </div>
-      {smokePositions.map((pos, i) => (
-        <div
-          key={i}
-          className={`
-            absolute w-64 h-64 
-            bg-gradient-to-b from-gray-500/20 to-transparent 
-            rounded-full blur-xl animate-float
-          `}
-          style={{
-            left: pos.left,
-            top: pos.top,
-            animationDelay: `${i * 2}s`,
-            animationDuration: `${10 + i * 2}s`
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
-// Glowing Text Component
-interface GlowingTextProps {
-  children: React.ReactNode;
-  color?: 'red' | 'orange' | 'yellow' | 'purple';
-}
-
-const GlowingText: React.FC<GlowingTextProps> = ({ children, color = "red" }) => {
-  const colorClasses = {
-    red: "text-red-500 bg-red-500/30",
-    orange: "text-orange-500 bg-orange-500/30",
-    yellow: "text-yellow-500 bg-yellow-500/30",
-    purple: "text-purple-500 bg-purple-500/30"
-  };
-
-  return (
-    <span className="relative inline-block animate-glow">
-      <span className="relative z-10">{children}</span>
-      <span className={`absolute inset-0 blur-lg animate-pulse ${colorClasses[color]}`}></span>
-    </span>
-  );
-};
+import AgeImpact from '@/components/AgeImpact';
+import ShareButton from '@/components/ShareButton';
+import SmokeBackground from '@/components/SmokeBackground';
+import GlowingText from '@/components/GlowingText';
+import HopeSection from '@/components/HopeSection';
+import SourcesSection from '@/components/SourcesSection';
+import LungVisualization from '@/components/LungVisualization';
 
 // Danger Level Indicator
 interface DangerLevelProps {
@@ -105,183 +53,23 @@ const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
 
 // Individual damage stat row
 interface DamageStatProps {
-  icon: React.ReactNode;
-  label: string;
-  value: React.ReactNode;
+  icon?: React.ReactNode;
+  label?: string;
+  value?: React.ReactNode;
+  className?: string;
 }
 
-const DamageStat: React.FC<DamageStatProps> = ({ icon, label, value }) => (
-  <div className="flex justify-between items-center">
-    <div className="flex items-center gap-2">
+const DamageStat: React.FC<DamageStatProps> = ({ icon, label, value, className }) => (
+  <div className={`flex justify-between items-center ${className}`}>
+    {label && <div className="flex items-center gap-2">
       {icon}
-      <span>{label}</span>
-    </div>
-    <GlowingText>{value}</GlowingText>
-  </div>
-);
-
-// Family impact card component
-interface FamilyImpactCardProps {
-  icon: React.ElementType;
-  title: string;
-  impacts: string[];
-  borderColor?: string;
-}
-
-const FamilyImpactCard: React.FC<FamilyImpactCardProps> = ({ icon: Icon, title, impacts, borderColor = "border-red-500/30" }) => (
-  <div className={`bg-gray-800/70 backdrop-blur-xl rounded-lg p-4 border ${borderColor}`}>
-    <div className="flex items-center gap-2 mb-3">
-      <Icon className={`w-6 h-6 ${borderColor.replace('border-', 'text-').replace('/30', '')}`} />
-      <h3 className="text-lg font-bold">{title}</h3>
-    </div>
-    <div className="space-y-2">
-      {impacts.map((impact, index) => (
-        <p key={index} className={`${borderColor.replace('border-', 'text-').replace('/30', '-200')}`}>
-          • {impact}
-        </p>
-      ))}
-    </div>
-  </div>
-);
-
-// New Age Impact Component
-interface AgeImpactProps {
-  aqi: number;
-}
-
-type AgeGroups = {
-  [key: string]: {
-    title: string;
-    color: string;
-    icon: React.ElementType;
-    impacts: string[];
-    emotional: string;
-  }
-}
-
-const AgeImpact: React.FC<AgeImpactProps> = ({ aqi }) => {
-  const [selectedAge, setSelectedAge] = useState<string>('');
-
-  const ageGroups: AgeGroups = {
-    young: {
-      title: "Young Adults (18-24)",
-      color: "border-orange-500/30",
-      icon: User,
-      impacts: [
-        `${(aqi/10).toFixed(0)}% increased risk of respiratory infections`,
-        `${(aqi/12).toFixed(0)}% higher risk of depression and anxiety`,
-        "Each day in toxic air reduces life expectancy by 2-4 hours",
-      ],
-      emotional: "Your future health depends on air quality today. Take action to protect yourself."
-    },
-    adult: {
-      title: "Adults (25-44)",
-      color: "border-red-500/30",
-      icon: Brain,
-      impacts: [
-        `${(aqi/8).toFixed(0)}% reduced cognitive performance on high pollution days`,
-        `${(aqi/7).toFixed(0)}% increased risk of cardiovascular issues`,
-        "Each year in polluted air accelerates aging by 1.8-2.2 years",
-      ],
-      emotional: "Protect your health and productivity by being aware of air quality."
-    },
-    middle: {
-      title: "Middle Age (45-64)",
-      color: "border-purple-500/30",
-      icon: Heart,
-      impacts: [
-        `${(aqi/4).toFixed(0)}% higher risk of heart attack and stroke`,
-        "Accelerated memory loss equivalent to aging 3 extra years",
-        "Each month reduces your healthy retirement years by 2 months",
-      ],
-      emotional: "You have worked hard all your life. Do not let toxic air rob you of your golden years."
-    },
-    senior: {
-      title: "Seniors (65+)",
-      color: "border-red-500/30",
-      icon: Activity,
-      impacts: [
-        `3x higher risk of hospitalization during pollution spikes`,
-        "Each day in this air can trigger irreversible health decline",
-        `${(aqi/3).toFixed(0)}% increased risk of requiring emergency care`,
-      ],
-      emotional: "Your wisdom and presence is precious to your family. This air threatens every moment you have with them."
-    }
-  };
-
-  return (
-    <section className="pt-8">
-      <h2 className="text-2xl font-bold mb-2 text-center">
-        How is toxic air affecting you?
-      </h2>
-      <h3 className="text-center text-gray-400 mb-4">Select your age group to see health impacts:</h3>
-      
-      <div className="grid grid-cols-2 gap-2 mb-6">
-        {Object.entries(ageGroups).map(([key, group]) => (
-          <button
-            key={key}
-            onClick={() => setSelectedAge(key)}
-            className={`p-3 rounded-lg text-sm font-medium transition-all
-              ${selectedAge === key 
-                ? 'bg-red-500/20 border-red-500 text-white' 
-                : 'bg-gray-800/50 border-gray-700 text-gray-300'
-              } border hover:border-red-500`}
-          >
-            {group.title}
-          </button>
-        ))}
+        <span>{label}</span>
       </div>
-      
-      {selectedAge && (
-        <div className="space-y-4 animate-fadeIn">
-          
-          <div>
-            <p className="text-red-500 text-center text-lg">
-              {ageGroups[selectedAge].emotional}
-            </p>
-          </div>
-          
-          <FamilyImpactCard
-            icon={ageGroups[selectedAge].icon}
-            title={ageGroups[selectedAge].title}
-            impacts={ageGroups[selectedAge].impacts}
-            borderColor={ageGroups[selectedAge].color}
-          />
-          <ShareButton text="Protect Your Loved Ones - Share Now" />
-        </div>
-      )}
-    </section>
-  );
-};
+    }
+    <GlowingText className={label ? "" : "flex-1"}>{value}</GlowingText>
+  </div>
+);
 
-// Share button component
-interface ShareButtonProps {
-  text?: string;
-}
-
-const ShareButton: React.FC<ShareButtonProps> = ({ text }) => {
-  const buttonText = text || "Warn your loved ones now";
-  const handleShare = () => {
-    const shareText = encodeURIComponent(
-      "⚠️ The air we&apos;re breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it&apos;s affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
-    );
-    const whatsappUrl = `https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`;
-    window.open(whatsappUrl, '_blank');
-  };
-
-  return (
-    <button 
-      onClick={handleShare}
-      className="w-full bg-red-500 hover:bg-red-600 text-white my-4 py-4 px-6 rounded-lg font-bold text-lg flex items-center justify-center gap-2 shadow-lg relative overflow-hidden group"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 animate-pulse"></div>
-      <span className="relative flex items-center gap-2">
-        <AlertTriangle className="w-6 h-6" />
-        {buttonText}
-      </span>
-    </button>
-  );
-};
 
 // New Stats Counter Component
 interface StatsCounterProps {
@@ -319,7 +107,7 @@ const StatsCounter: React.FC<StatsCounterProps> = ({ startTime }) => {
   return (
     <div className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30 mb-6">
       <h2 className="text-lg font-semibold mb-4 text-red-400">
-        Damage Accumulating Now:
+        Damage Since You Arrived:
       </h2>
       <div className="space-y-3">
         {/* <DamageStat 
@@ -337,27 +125,16 @@ const StatsCounter: React.FC<StatsCounterProps> = ({ startTime }) => {
           label="Indians Died" 
           value={<span className="font-mono">{stats.deaths.toFixed(1)}</span>} 
         />
+        <DamageStat 
+          className="text-center"
+          value={<span className="font-mono">
+            {Array(Math.floor(stats.deaths)).fill('💀').join('')}
+          </span>} 
+        />
       </div>
     </div>
   );
 };
-
-// Hope Card Component
-interface HopeCardProps {
-  icon: React.ElementType;
-  title: string;
-  description: React.ReactNode;
-}
-
-const HopeCard: React.FC<HopeCardProps> = ({ icon: Icon, title, description }) => (
-  <div className="bg-emerald-900/3 backdrop-blur-xl rounded-lg p-4 border border-emerald-500/30">
-    <div className="flex items-center gap-2 mb-3">
-      <Icon className="w-6 h-6 text-emerald-500" />
-      <h3 className="text-lg font-bold text-emerald-400">{title}</h3>
-    </div>
-    <p className="text-gray-200">{description}</p>
-  </div>
-);
 
 // Update DailyImpactSection with scientifically-validated impacts
 const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
@@ -369,13 +146,6 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
       value: `${Math.floor(aqi/22)} cigarettes`, // 22 μg/m3 PM2.5 ≈ 1 cigarette
       description: "Each day in this air equals smoking these many cigarettes"
     },
-    brain: {
-      icon: Brain,
-      title: "Cognitive Impact",
-      // Based on PNAS study on air pollution and cognitive performance
-      value: `${Math.floor(aqi/15)}% reduced function`,
-      description: "Your cognitive performance is temporarily impaired"
-    },
     life: {
       icon: Clock,
       title: "Life Impact",
@@ -383,13 +153,6 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
       value: `${Math.floor(aqi/25)} hours lost`,
       description: "Each day in severe pollution reduces life expectancy"
     },
-    // lungs: {
-    //   icon: Heart,
-    //   title: "Lung Function",
-    //   // Based on EPA studies on PM2.5 and respiratory function
-    //   value: `${Math.max(0, 100 - (aqi/3))}% capacity`,
-    //   description: "Your current breathing capacity is reduced"
-    // }
   };
 
   return (
@@ -423,160 +186,6 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
     </section>
   );
 };
-
-// Hope Section Component
-const HopeSection: React.FC = () => {
-  const shareText = encodeURIComponent(
-    "⚠️ The air we&apos;re breathing is toxic... Learn more about the health impacts: https://air.nmn.gl\n\n🫁 Protect your family - See how it&apos;s affecting our children and elderly RIGHT NOW! 😷\n\nStay informed, stay safe! 🏥"
-  );
-
-  return (
-    <section className="pt-8">
-      <h2 className="text-2xl font-bold mb-6 text-center">
-        There is still hope&hellip;
-      </h2>
-      
-      <div className="space-y-4">
-        <p className="text-gray-200 text-center">
-          The problem isn&apos;t natural - it&apos;s caused by humans.<br />
-          That means we can fix it through action.
-        </p>
-        
-        <div className="space-y-4">
-          <HopeCard
-            icon={User}
-            title="What You Can Do Today"
-            description={<>
-              • <a href={`https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`} className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Share this site</a> with family &amp; friends<br />
-              • Install air purifiers at home &amp; office<br />
-              • Wear N95 masks when outdoors<br />
-              • Connect with local NGOs to drive change<br />
-              • Support clean air initiatives in your area
-            </>}
-          />
-          
-          <HopeCard
-            icon={Brain}
-            title="Join the Movement"
-            description={<>
-              • <a href="https://a-pag.org" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">A-PAG</a>: Works with government to implement air pollution solutions<br />
-              • <a href="https://www.cleanairfund.org/where-we-work/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Fund</a>: Partners with government and business at every level<br />
-              • <a href="https://cleanairasia.org/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Asia</a>: Provides scientific input for better air quality
-            </>}
-          />
-
-          <HopeCard
-            icon={AlertTriangle}
-            title="What Causes Air Pollution?"
-            description={<>
-              • Burning of coal, petrol, diesel &amp; gas in industries<br />
-              • Vehicle emissions &amp; increasing traffic<br />
-              • Large-scale construction activity<br />
-              • Crop burning in neighboring states<br />
-            </>}
-          />
-          
-          <ShareButton text="Share With Your Family" />
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Sources Section Component
-const SourcesSection: React.FC = () => (
-  <section className="mt-8 bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
-    <details className="text-sm text-gray-400">
-      <summary className="cursor-pointer hover:text-gray-300">Sources</summary>
-      
-      <div className="space-y-4 pl-2">
-        <div>
-          <h4 className="text-gray-300 mb-2">News Articles</h4>
-          <ul className="space-y-1">
-            <li>
-              <a href="https://economictimes.indiatimes.com/news/india/air-pollution-every-day-464-children-in-india-die-report/articleshow/111133693.cms" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                Air pollution: Every day, 464 children in India die: Report - Economic Times, 2024
-              </a>
-            </li>
-            <li>
-              <a href="https://www.bc.edu/bc-web/bcnews/nation-world-society/international/air-pollution-in-inda.html" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                The human toll of air pollution in India - Boston College News, 2021
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-gray-300 mb-2">Research Studies</h4>
-          <ul className="space-y-1">
-            <li>
-              <a href="https://www.pnas.org/doi/10.1073/pnas.1809474115"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                Zhang et al. (2018). &quot;The impact of exposure to air pollution on cognitive performance.&quot; <i>PNAS</i>
-              </a>
-            </li>
-            <li>Chen et al. (2013). &quot;Evidence on the impact of sustained exposure to air pollution on life expectancy.&quot; <i>PNAS</i></li>
-            <li>WHO Global Air Quality Guidelines (2021)</li>
-            <li>
-              <a href="https://sph.emory.edu/news/news-release/2023/10/air-pollution-exposure-puberty.html"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                Emory University (2023). &quot;Air Pollution Exposure During Childhood and Adolescence.&quot;
-              </a>
-            </li>
-            <li>
-              <a href="https://www.lung.org/clean-air/outdoors/who-is-at-risk"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                American Lung Association (2023). &quot;Who is at Risk from Air Pollution?&quot;
-              </a>
-            </li>
-            <li>
-              <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6904854/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                Sahu et al. (2020). &quot;Air Pollution and Cardiovascular Disease: A Focus on Vulnerable Populations.&quot;
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-gray-300 mb-2">Age-Specific Impact Studies</h4>
-          <ul className="space-y-1">
-            <li>
-              <a href="https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(19)30090-1/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                The Lancet (2019). &quot;Age-specific effects of air pollution on cognitive performance.&quot;
-              </a>
-            </li>
-            <li>
-              <a href="https://www.nature.com/articles/s41598-019-44561-0"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="hover:text-gray-300">
-                Nature (2019). &quot;Differential susceptibility to air pollution by age group.&quot;
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </details>
-  </section>
-);
 
 // Footer Component
 const Footer: React.FC = () => (
@@ -639,9 +248,11 @@ const ToxicAirDashboard: React.FC = () => {
           </p>
           <DangerLevel aqi={aqi} />
           <StatsCounter startTime={startTime} />
+          <ShareButton text="Share the truth" />
         </div>
 
         <div className="space-y-4">
+          <LungVisualization />
           <AgeImpact aqi={aqi} />
           <DailyImpactSection aqi={aqi} />
           <ShareButton text="Share the truth" />
