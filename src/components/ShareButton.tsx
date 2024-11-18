@@ -13,7 +13,7 @@ export default function ShareButton({ text, color = 'green', icon: Icon = AlertT
     const shareText = encodeURIComponent(
       "Protect your family - See how our air is affecting our children and elderly RIGHT NOW! \n\nhttps://air.nmn.gl\n\nStay informed, stay safe!"
     );
-    const whatsappUrl = `https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
     window.open(whatsappUrl, '_blank');
   };
 
