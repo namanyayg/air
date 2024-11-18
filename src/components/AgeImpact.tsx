@@ -75,7 +75,7 @@ export default function AgeImpact({ aqi }: AgeImpactProps) {
   return (
     <section className="pt-8">
       <h2 className="text-2xl font-bold mb-2 text-center">
-        Toxic Air affects you & your family:
+        Toxic Air affects You & Family 💔
       </h2>
       <h3 className="text-center text-gray-400 mb-4">Select your age group to see health impacts:</h3>
       

@@ -142,7 +142,7 @@ const LungComparison: React.FC = () => {
   return (
     <div className="max-w-md mx-auto mt-8">
       <h2 className="text-2xl font-bold text-white text-center mb-2 flex items-center justify-center gap-2">
-        Your Organs Are Already Damaged
+        Your Organs Are Damaged 🤕
       </h2>
       
       <div className="text-center mb-6">

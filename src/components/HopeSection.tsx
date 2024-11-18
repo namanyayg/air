@@ -27,7 +27,7 @@ export default function HopeSection() {
   return (
     <section className="pt-8">
       <h2 className="text-2xl font-bold mb-2 text-center">
-        There is still hope&hellip;
+        There is still hope&hellip; 🤞
       </h2>
       
       <div className="space-y-4">
@@ -70,7 +70,7 @@ export default function HopeSection() {
             </>}
           />
           
-          <ShareButton text="Share With Your Family" />
+          <ShareButton text="Share With Your Family" color="emerald" icon={User} />
         </div>
       </div>
     </section>

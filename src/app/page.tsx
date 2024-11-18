@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { 
-  Skull, Activity, Clock 
+  Skull, Activity, Clock, Shield
 } from 'lucide-react';
 import GlowingText from '@/components/GlowingText';
 import AgeImpact from '@/components/AgeImpact';
@@ -11,6 +11,7 @@ import SmokeBackground from '@/components/SmokeBackground';
 import HopeSection from '@/components/HopeSection';
 import SourcesSection from '@/components/SourcesSection';
 import LungVisualization from '@/components/LungVisualization';
+import ImmunityMythSection from '@/components/ImmunityMyth';
 
 // Danger Level Indicator
 interface DangerLevelProps {
@@ -143,14 +144,14 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
       icon: Activity,
       title: "Cigarette Equivalent",
       // Updated based on Berkeley Earth study correlating PM2.5 to cigarette smoking
-      value: `${Math.floor(aqi/22)} cigarettes`, // 22 μg/m3 PM2.5 ≈ 1 cigarette
+      value: `${Math.floor(aqi * 2/22)} cigarettes`, // 22 μg/m3 PM2.5 ≈ 1 cigarette
       description: "Each day in this air equals smoking these many cigarettes"
     },
     life: {
       icon: Clock,
       title: "Life Impact",
       // Based on WHO guidelines on air quality and mortality
-      value: `${Math.floor(aqi/25)} hours lost`,
+      value: `${Math.floor(aqi/100)} hours lost`,
       description: "Each day in severe pollution reduces life expectancy"
     },
   };
@@ -158,7 +159,7 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
   return (
     <section className="pt-8">
       <h2 className="text-2xl font-bold mb-2 text-center">
-        Today&apos;s Health Impact
+        Today&apos;s Health Impact 🧑‍⚕️
       </h2>
       <p className="text-center text-red-500 mb-6">
         Current air quality is affecting your body
@@ -207,27 +208,6 @@ const Footer: React.FC = () => (
   </footer>
 );
 
-// Add new component for accurate pollution metrics
-// interface PollutionMetricsProps {
-//   aqi: number;
-// }
-
-// const PollutionMetrics: React.FC<PollutionMetricsProps> = ({ aqi }) => {
-//   // Calculations based on WHO Air Quality Guidelines
-//   const mortalityRisk = (aqi / 10) * 0.6; // % increase in mortality risk
-//   const hospitalizations = (aqi / 15) * 1.2; // % increase in hospitalizations
-  
-//   return (
-//     <div className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30 mb-6">
-//       <h3 className="text-lg font-bold mb-4">Current Health Risks</h3>
-//       <div className="space-y-2">
-//         <p>Mortality Risk: +{mortalityRisk.toFixed(1)}%</p>
-//         <p>Hospital Admissions: +{hospitalizations.toFixed(1)}%</p>
-//       </div>
-//     </div>
-//   );
-// };
-
 // Main Dashboard Component
 const ToxicAirDashboard: React.FC = () => {
   const [aqi] = useState<number>(285);
@@ -253,6 +233,8 @@ const ToxicAirDashboard: React.FC = () => {
 
         <div className="space-y-4">
           <LungVisualization />
+          <ImmunityMythSection />
+          <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
           <AgeImpact aqi={aqi} />
           <DailyImpactSection aqi={aqi} />
           <ShareButton text="Share the truth" />

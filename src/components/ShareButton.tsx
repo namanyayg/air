@@ -1,11 +1,13 @@
 // Share button component
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, LucideIcon } from 'lucide-react';
 
 interface ShareButtonProps {
   text?: string;
+  color?: string;
+  icon?: LucideIcon;
 }
 
-export default function ShareButton({ text }: ShareButtonProps) {
+export default function ShareButton({ text, color = 'red', icon: Icon = AlertTriangle }: ShareButtonProps) {
   const buttonText = text || "Warn your loved ones now";
   const handleShare = () => {
     const shareText = encodeURIComponent(
@@ -18,11 +20,11 @@ export default function ShareButton({ text }: ShareButtonProps) {
   return (
     <button 
       onClick={handleShare}
-      className="w-full bg-red-500 hover:bg-red-600 text-white my-4 py-4 px-6 rounded-lg font-bold text-lg flex items-center justify-center gap-2 shadow-lg relative overflow-hidden group"
+      className={`w-full bg-${color}-500 hover:bg-${color}-600 text-white my-4 py-4 px-6 rounded-lg font-bold text-lg flex items-center justify-center gap-2 shadow-lg relative overflow-hidden group`}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 animate-pulse"></div>
+      <div className={`absolute inset-0 bg-gradient-to-r from-${color}-600 to-${color}-500 animate-pulse`}></div>
       <span className="relative flex items-center gap-2">
-        <AlertTriangle className="w-6 h-6" />
+        <Icon className="w-6 h-6" />
         {buttonText}
       </span>
     </button>
