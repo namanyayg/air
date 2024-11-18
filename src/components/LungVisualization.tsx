@@ -156,12 +156,12 @@ const LungComparison: React.FC = () => {
         <Lung 
           aqi={10} 
           label="Healthy Lung"
-          description="Clean air (AQI 10)"
+          description="Clean air"
         />
         <Lung 
           aqi={400} 
           label="Your Lung Now"
-          description="Toxic air (AQI 400)"
+          description="Toxic air"
         />
       </div>
 

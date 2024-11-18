@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { 
-  Skull, Brain, Activity, Clock 
+  Skull, Activity, Clock 
 } from 'lucide-react';
+import GlowingText from '@/components/GlowingText';
 import AgeImpact from '@/components/AgeImpact';
 import ShareButton from '@/components/ShareButton';
 import SmokeBackground from '@/components/SmokeBackground';
-import GlowingText from '@/components/GlowingText';
 import HopeSection from '@/components/HopeSection';
 import SourcesSection from '@/components/SourcesSection';
 import LungVisualization from '@/components/LungVisualization';
