@@ -7,7 +7,7 @@ interface ShareButtonProps {
   icon?: LucideIcon;
 }
 
-export default function ShareButton({ text, color = 'red', icon: Icon = AlertTriangle }: ShareButtonProps) {
+export default function ShareButton({ text, color = 'emerald', icon: Icon = AlertTriangle }: ShareButtonProps) {
   const buttonText = text || "Warn your loved ones now";
   const handleShare = () => {
     const shareText = encodeURIComponent(

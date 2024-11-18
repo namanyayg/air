@@ -126,7 +126,7 @@ const ToxicAirDashboard: React.FC = () => {
         <div className="space-y-4">
           <LungVisualization />
           <NewbornImpactSection />
-          <ShareButton text="Share & Save Babies" color="emerald" icon={Shield} />
+          <ShareButton text="Share & Spread Awareness for Babies" color="emerald" icon={Shield} />
           <ImmunityMythSection />
           <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
           <AgeImpact aqi={airQuality.aqi} />
