@@ -7,7 +7,7 @@ interface ShareButtonProps {
   icon?: LucideIcon;
 }
 
-export default function ShareButton({ text, color = 'emerald', icon: Icon = AlertTriangle }: ShareButtonProps) {
+export default function ShareButton({ text, color = 'green', icon: Icon = AlertTriangle }: ShareButtonProps) {
   const buttonText = text || "Warn your loved ones now";
   const handleShare = () => {
     const shareText = encodeURIComponent(
@@ -20,9 +20,9 @@ export default function ShareButton({ text, color = 'emerald', icon: Icon = Aler
   return (
     <button 
       onClick={handleShare}
-      className={`w-full bg-${color}-500 hover:bg-${color}-600 text-white my-4 py-4 px-6 rounded-lg font-bold text-lg flex items-center justify-center gap-2 shadow-lg relative overflow-hidden group`}
+      className={`w-full bg-emerald bg-${color}-500 hover:bg-emerald hover:bg-${color}-600 text-white my-4 py-4 px-6 rounded-lg font-bold text-lg flex items-center justify-center gap-2 shadow-lg relative overflow-hidden group`}
     >
-      <div className={`absolute inset-0 bg-gradient-to-r from-${color}-600 to-${color}-500 animate-pulse`}></div>
+      <div className={`absolute inset-0 bg-gradient-to-r from-emerald-600 from-${color}-600 to-emerald-500 to-${color}-500`}></div>
       <span className="relative flex items-center gap-2">
         <Icon className="w-6 h-6" />
         {buttonText}

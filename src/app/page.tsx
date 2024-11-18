@@ -26,18 +26,19 @@ const NewbornImpactSection: React.FC = () => {
     <section className="pt-8">
       <div className="bg-black/50 backdrop-blur-xl rounded-lg p-6 border border-red-500/30">
         <h2 className="text-2xl font-bold mb-4 text-center text-red-400">
-          Our Newborns Are Dying 👶
+          Our Newborns Are Dying
         </h2>
         
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
+        <div className="flex flex-wrap justify-center gap-1 mb-6">
           {[...Array(5)].map((_, i) => (
             <div key={i} className="relative">
-              <Baby 
-                className={`w-12 h-12 ${i === 0 ? 'text-red-500 animate-pulse' : 'text-gray-400'}`}
-              />
-              {i === 0 && (
-                <div className="absolute -top-1 -right-1">
-                  <Skull className="w-4 h-4 text-red-500" />
+              {i === 0 ? (
+                <div>
+                  <span className="text-4xl">💔</span>
+                </div>
+              ) : (
+                <div>
+                  <span className="text-4xl">❤️</span>
                 </div>
               )}
             </div>

@@ -72,7 +72,7 @@ export default function StatsCounter({ startTime }: StatsCounterProps) {
         />
         <DamageStat 
           icon={<Skull className="w-5 h-5 text-red-500" />} 
-          label="Indians Died" 
+          label="Indians Died Since You Arrived" 
           value={<span className="font-mono">{stats.deaths.toFixed(1)}</span>} 
         />
         <DamageStat 
