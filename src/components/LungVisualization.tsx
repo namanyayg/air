@@ -134,7 +134,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ icon: Icon, title, description 
       <Icon className="w-5 h-5 text-red-500" />
       <h3 className="font-bold text-white">{title}</h3>
     </div>
-    <p className="text-sm text-gray-300">{description}</p>
+    <p className="text-gray-300">{description}</p>
   </div>
 );
 
