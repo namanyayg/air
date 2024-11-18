@@ -16,8 +16,8 @@ import ImmunityMythSection from '@/components/ImmunityMyth';
 import Footer from '@/components/Footer';
 import { LocationAwareHeader } from '@/components/LocationAwareHeader';
 import { AirQualityProvider, useAirQuality } from '@/contexts/AirQualityContext';
-import AQITable from '@/components/AQITable';
-import airTableData from '../../public/air-table.json';
+// import AQITable from '@/components/AQITable';
+// import airTableData from '../../public/air-table.json';
 
 // Newborn Impact Section
 const NewbornImpactSection: React.FC = () => {
@@ -70,7 +70,7 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
       icon: Clock,
       title: "Life Impact",
       // Based on WHO guidelines  on air quality and mortality
-      value: `${Math.floor(aqi/120)} hours lost`,
+      value: `${Math.floor(aqi/180)} hours lost`,
       description: "Each day in severe pollution reduces life expectancy"
     },
   };
@@ -120,7 +120,7 @@ const ToxicAirDashboard: React.FC = () => {
         <LocationAwareHeader />
         <StatsCounter startTime={startTime} />
         <ShareButton text="Share the truth" />
-        <AQITable airData={airTableData} />
+        {/* <AQITable airData={airTableData} /> */}
         
         <div className="space-y-4">
           <LungVisualization />

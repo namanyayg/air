@@ -33,7 +33,7 @@ export default function AgeImpact({ aqi }: AgeImpactProps) {
       impacts: [
         `${(aqi/10).toFixed(0)}% increased risk of respiratory infections`,
         `${(aqi/12).toFixed(0)}% higher risk of depression and anxiety`,
-        "Each day in toxic air reduces life expectancy by 2-4 hours",
+        "Each day in toxic air reduces life expectancy by 2 hours",
       ],
       emotional: "Your future health depends on air quality today. Take action to protect yourself."
     },
@@ -44,7 +44,7 @@ export default function AgeImpact({ aqi }: AgeImpactProps) {
       impacts: [
         `${(aqi/8).toFixed(0)}% reduced cognitive performance on high pollution days`,
         `${(aqi/7).toFixed(0)}% increased risk of cardiovascular issues`,
-        "Each year in polluted air accelerates aging by 1.8-2.2 years",
+        "Each year in polluted air accelerates aging",
       ],
       emotional: "Protect your health and productivity by being aware of air quality."
     },
@@ -54,8 +54,8 @@ export default function AgeImpact({ aqi }: AgeImpactProps) {
       icon: Heart,
       impacts: [
         `${(aqi/4).toFixed(0)}% higher risk of heart attack and stroke`,
-        "Accelerated memory loss equivalent to aging 3 extra years",
-        "Each month reduces your healthy retirement years by 2 months",
+        "Accelerated memory loss",
+        "Each month reduces your healthy retirement years",
       ],
       emotional: "You have worked hard all your life. Do not let toxic air rob you of your golden years."
     },
