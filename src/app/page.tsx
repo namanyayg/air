@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import { 
-  Skull, Activity, Clock, Shield, Baby,
-  User
+  Activity, Clock, Shield, User
 } from 'lucide-react';
 // import GlowingText from '@/components/GlowingText';
 import StatsCounter from '@/components/StatsCounter';
