@@ -198,6 +198,9 @@ const Footer: React.FC = () => (
             Made by <a href="https://x.com/NamanyayG" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Namanyay Goel</a> in New Delhi
           </p>
           <p>
+            Join our <a href="https://t.me/fightpollution" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Telegram group</a> to fight pollution together
+          </p>
+          <p>
             &quot;Air&quot; is Non-Profit and is fully open source. Contributions &amp; ideas are welcome!
           </p>
           <p className="text-gray-500">जनहित में जारी © 2024</p>

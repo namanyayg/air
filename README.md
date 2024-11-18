@@ -2,6 +2,8 @@
 
 A real-time air quality monitoring dashboard that shows the immediate health impacts of air pollution on families, particularly children and the elderly.
 
+- Join our [Telegram group](https://t.me/fightpollution) to fight pollution together
+
 ## Features
 
 - Health impact visualization for different age groups
