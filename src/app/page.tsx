@@ -59,7 +59,12 @@ const NewbornImpactSection: React.FC = () => {
 
 // Update DailyImpactSection with scientifically-validated impacts
 const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
-  const impacts = {
+  const impacts: Record<string, {
+    icon: any,
+    title: string,
+    value: string,
+    description: string
+  }> = {
     cigarettes: {
       icon: Activity,
       title: "Cigarette Equivalent",
@@ -67,14 +72,18 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
       value: `${Array(Math.floor(aqi * 2/22)).fill('🚬').join('')}`, // 22 μg/m3 PM2.5 ≈ 1 cigarette
       description: "Each day in this air equals smoking these many cigarettes"
     },
-    life: {
+  };
+
+  // Only add life impact if hours lost is greater than 0
+  const hoursLost = Math.floor(aqi/180);
+  if (hoursLost > 0) {
+    impacts.life = {
       icon: Clock,
       title: "Life Impact",
-      // Based on WHO guidelines  on air quality and mortality
-      value: `${Math.floor(aqi/180)} hours lost`,
+      value: `${hoursLost} hours lost`,
       description: "Each day in severe pollution reduces life expectancy"
-    },
-  };
+    };
+  }
 
   return (
     <section>
