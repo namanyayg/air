@@ -27,7 +27,7 @@ const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
   const colors = getColorClasses();
 
   return (
-    <div className="relative flex items-center justify-center h-32 mb-6">
+    <div className="hidden relative flex items-center justify-center h-32 mb-6">
       <div className={`absolute w-32 h-32 ${colors.bg} rounded-full blur-xl animate-pulse`} />
       <div className="relative text-center">
         <Skull className={`w-12 h-12 ${colors.text} mx-auto mb-2 animate-pulse`} />
@@ -124,7 +124,7 @@ export const LocationAwareHeader: React.FC = () => {
         <span className="text-gray-200 block mb-4"><strong>But, no one understands it.</strong></span>
         <span className="text-gray-400 block mb-4">Keep scrolling & see the <strong>real impact</strong> of air pollution on our health.</span>
       </p>
-      {/* <DangerLevel aqi={airQuality.aqi} /> */}
+      <DangerLevel aqi={airQuality.aqi} />
     </div>
   );
 };

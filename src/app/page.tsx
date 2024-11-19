@@ -77,7 +77,7 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
   };
 
   return (
-    <section className="pt-8">
+    <section>
       <h2 className="text-2xl font-bold mb-2 text-center">
         Today&apos;s Health Impact 🧑‍⚕️
       </h2>
