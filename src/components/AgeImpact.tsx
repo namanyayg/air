@@ -73,7 +73,7 @@ export default function AgeImpact({ aqi }: AgeImpactProps) {
   };
 
   return (
-    <section className="pt-8">
+    <section>
       <h2 className="text-2xl font-bold mb-2 text-center">
         Toxic Air affects You & Family 💔
       </h2>

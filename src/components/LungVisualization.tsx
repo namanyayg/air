@@ -140,7 +140,7 @@ const ImpactCard: React.FC<ImpactCardProps> = ({ icon: Icon, title, description 
 
 const LungComparison: React.FC = () => {
   return (
-    <div className="max-w-md mx-auto mt-8">
+    <div className="max-w-md mx-auto mt-20">
       <h2 className="text-2xl font-bold text-white text-center mb-2 flex items-center justify-center gap-2">
         Your Organs Are Damaged 🤕
       </h2>

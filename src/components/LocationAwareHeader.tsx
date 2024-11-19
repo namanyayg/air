@@ -115,15 +115,16 @@ export const LocationAwareHeader: React.FC = () => {
   }, [setAirQuality]);
 
   return (
-    <div className="text-center">
-      <h1 className="text-4xl font-bold mb-4">
-        Air Alert
+    <div>
+      <h1 className="text-2xl font-bold mb-4">
+        Pollution Impact & Awareness
       </h1>
-      <p className="text-center my-4">
-        <span className="text-gray-100">Our country is in danger.</span><br />
-        <span className="text-gray-300">The first step is <b>awareness</b>.</span>
+      <p className="my-4 text-xl leading-relaxed">
+        <span className="text-gray-400 block mb-4">Everyone sees how polluted our air is.</span>
+        <span className="text-gray-200 block mb-4"><strong>But, no one understands it.</strong></span>
+        <span className="text-gray-400 block mb-4">Keep scrolling & see the <strong>real impact</strong> of air pollution on our health.</span>
       </p>
-      <DangerLevel aqi={airQuality.aqi} />
+      {/* <DangerLevel aqi={airQuality.aqi} /> */}
     </div>
   );
 };

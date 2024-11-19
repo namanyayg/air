@@ -22,7 +22,7 @@ import { AirQualityProvider, useAirQuality } from '@/contexts/AirQualityContext'
 // Newborn Impact Section
 const NewbornImpactSection: React.FC = () => {
   return (
-    <section className="pt-8">
+    <section>
       <div className="bg-black/50 backdrop-blur-xl rounded-lg p-6 border border-red-500/30">
         <h2 className="text-2xl font-bold mb-4 text-center text-red-400">
           Our Newborns Are Dying
@@ -119,23 +119,20 @@ const ToxicAirDashboard: React.FC = () => {
       
       <div className="relative max-w-md mx-auto p-4 space-y-6">
         <LocationAwareHeader />
+        <DailyImpactSection aqi={airQuality.aqi} />
+        <ShareButton text="Share the Truth" color="emerald" icon={User} />
+        <AgeImpact aqi={airQuality.aqi} />
+        {/* <AQITable airData={airTableData} /> */}
+        <NewbornImpactSection />
+        <ShareButton text="Share & Spread Awareness for Babies" color="emerald" icon={Shield} />
+        <LungVisualization />
+        <ImmunityMythSection />
+        <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
         <StatsCounter startTime={startTime} />
         <ShareButton text="Share with Family" />
-        {/* <AQITable airData={airTableData} /> */}
-        
-        <div className="space-y-4">
-          <LungVisualization />
-          <NewbornImpactSection />
-          <ShareButton text="Share & Spread Awareness for Babies" color="emerald" icon={Shield} />
-          <ImmunityMythSection />
-          <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
-          <AgeImpact aqi={airQuality.aqi} />
-          <DailyImpactSection aqi={airQuality.aqi} />
-          <ShareButton text="Share the Truth" color="emerald" icon={User} />
-          <HopeSection />
-          <SourcesSection />
-          <Footer />
-        </div>
+        <HopeSection />
+        <SourcesSection />
+        <Footer />
       </div>
     </div>
   );
