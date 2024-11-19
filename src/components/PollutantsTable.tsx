@@ -1,4 +1,5 @@
 import { Cloud, AlertCircle, Heart, Brain } from "lucide-react";
+import React from "react";
 
 interface PollutantsTableProps {
   measurements?: {
@@ -63,9 +64,8 @@ export default function PollutantsTable({ measurements, colors }: PollutantsTabl
       <table className="w-full text-sm">
         <tbody>
           {pollutantInfo.map((pollutant) => (
-            <>
+            <React.Fragment key={pollutant.name}>
               <tr 
-                key={`${pollutant.name}-value`}
                 className="border-b border-gray-800 hover:bg-black/20"
               >
                 <td className="py-2 px-4 font-medium text-gray-300 flex items-center gap-2">
@@ -76,12 +76,12 @@ export default function PollutantsTable({ measurements, colors }: PollutantsTabl
                   {pollutant.value ? `${pollutant.value} ${pollutant.unit}` : '-'}
                 </td>
               </tr>
-              <tr key={`${pollutant.name}-explanation`} className="bg-black/10">
+              <tr className="bg-black/10">
                 <td colSpan={2} className="py-2 px-4 text-gray-400 text-sm text-center">
                   {pollutant.explanation}
                 </td>
               </tr>
-            </>
+            </React.Fragment>
           ))}
         </tbody>
       </table>
