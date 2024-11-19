@@ -16,8 +16,26 @@ import ImmunityMythSection from '@/components/ImmunityMyth';
 import Footer from '@/components/Footer';
 import { LocationAwareHeader } from '@/components/LocationAwareHeader';
 import { AirQualityProvider, useAirQuality } from '@/contexts/AirQualityContext';
-// import AQITable from '@/components/AQITable';
-// import airTableData from '../../public/air-table.json';
+import ForecastChart from '@/components/ForecastChart';
+import PollutantsTable from '@/components/PollutantsTable';
+
+const getColorClasses = (aqi: number) => {
+  if (aqi > 300) return {
+    bg: "bg-red-500/20",
+    text: "text-red-500",
+    border: "border-red-500/30"
+  };
+  if (aqi > 200) return {
+    bg: "bg-orange-500/20",
+    text: "text-orange-500",
+    border: "border-orange-500/30"
+  };
+  return {
+    bg: "bg-yellow-500/20",
+    text: "text-yellow-500",
+    border: "border-yellow-500/30"
+  };
+};
 
 // Newborn Impact Section
 const NewbornImpactSection: React.FC = () => {
@@ -60,7 +78,7 @@ const NewbornImpactSection: React.FC = () => {
 // Update DailyImpactSection with scientifically-validated impacts
 const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
   const impacts: Record<string, {
-    icon: any,
+    icon: React.ElementType,
     title: string,
     value: string,
     description: string
@@ -138,6 +156,11 @@ const ToxicAirDashboard: React.FC = () => {
         <ImmunityMythSection />
         <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
         <StatsCounter startTime={startTime} />
+        <ForecastChart forecast={airQuality.forecast} />
+        <PollutantsTable 
+          measurements={airQuality.measurements} 
+          colors={getColorClasses(airQuality.aqi)} 
+        />
         <ShareButton text="Share with Family" />
         <HopeSection />
         <SourcesSection />

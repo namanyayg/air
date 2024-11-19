@@ -1,42 +1,89 @@
 "use client";
-import { Skull } from "lucide-react";
 import { useAirQuality } from "@/contexts/AirQualityContext";
 import { useEffect } from "react";
+import { Skull, MapPin, Clock, ExternalLink } from "lucide-react";
+import { formatDistanceToNow } from 'date-fns';
 
 // Danger Level Indicator
-interface DangerLevelProps {
-  aqi: number;
-}
-
-const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
+const DangerLevel: React.FC<AirQualityData> = ({ 
+  aqi, 
+  measurements, 
+  stationName,
+  dominentpol, 
+  time,
+  attribution
+}) => {
   const getColorClasses = () => {
     if (aqi > 300) return {
       bg: "bg-red-500/20",
-      text: "text-red-500"
+      text: "text-red-500",
+      border: "border-red-500/30"
     };
     if (aqi > 200) return {
       bg: "bg-orange-500/20",
-      text: "text-orange-500"
+      text: "text-orange-500",
+      border: "border-orange-500/30"
     };
     return {
       bg: "bg-yellow-500/20",
-      text: "text-yellow-500"
+      text: "text-yellow-500",
+      border: "border-yellow-500/30"
     };
   };
 
   const colors = getColorClasses();
+  const timeAgo = time ? formatDistanceToNow(new Date(time), { addSuffix: true }) : null;
+
+  if (!aqi || !measurements) {
+    return null;
+  }
 
   return (
-    <div className="hidden relative flex items-center justify-center h-32 mb-6">
-      <div className={`absolute w-32 h-32 ${colors.bg} rounded-full blur-xl animate-pulse`} />
-      <div className="relative text-center">
-        <Skull className={`w-12 h-12 ${colors.text} mx-auto mb-2 animate-pulse`} />
-        <div className="text-2xl font-bold text-white">
-          Toxicity Level
+    <div className="space-y-6">
+      {/* Main AQI Display */}
+      <div className={`relative flex flex-col p-6 rounded-xl border ${colors.border} bg-black/40 backdrop-blur-sm`}>
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex-1">
+            <div className={`text-4xl font-bold ${colors.text} mb-2`}>{aqi}</div>
+            <div className="text-lg text-gray-300">Air Quality Index</div>
+            {dominentpol && (
+              <div className="text-sm text-gray-400 mt-2">
+                Main Pollutant: {dominentpol?.toUpperCase()}
+              </div>
+            )}
+          </div>
+          <Skull className={`w-16 h-16 ${colors.text} animate-pulse`} />
         </div>
-        <div className={`text-4xl font-bold ${colors.text}`}>
-          {aqi}
-        </div>
+
+        {/* Source Information */}
+        {(stationName || timeAgo || attribution) && (
+          <div className="space-y-3 border-t border-gray-800 pt-4">
+            {stationName && (
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <MapPin className="w-4 h-4" />
+                <span>{stationName}</span>
+              </div>
+            )}
+            {timeAgo && (
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <Clock className="w-4 h-4" />
+                <span>Updated {timeAgo}</span>
+              </div>
+            )}
+            {attribution?.map((source, index) => (
+              <a
+                key={index}
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-300 transition-colors"
+              >
+                <span>{source.name}</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -45,70 +92,93 @@ const DangerLevel: React.FC<DangerLevelProps> = ({ aqi }) => {
 interface AirQualityData {
   aqi: number;
   city: string;
+  measurements?: {
+    pm25?: { v: number };
+    pm10?: { v: number };
+    co?: { v: number };
+    no2?: { v: number };
+    so2?: { v: number };
+  };
+  forecast?: {
+    daily?: {
+      pm25?: { avg: number; day: string; }[];
+      aqi?: number[];
+    };
+  };
+  stationName?: string;
+  dominentpol?: string;
+  time?: string;
+  attribution?: {
+    name: string;
+    url: string;
+  }[];
 }
 
-async function fetchCityAQI(city: string): Promise<AirQualityData> {
+async function fetchAQIByCoordinates(lat: number, lng: number): Promise<AirQualityData> {
+  const API_TOKEN = process.env.NEXT_PUBLIC_WAQI_API_TOKEN;
+  console.log('Starting fetchAQIByCoordinates');
+  
   try {
-    const response = await fetch('/air-data.json');
+    const response = await fetch(
+      `https://api.waqi.info/feed/geo:${lat};${lng}/?token=${API_TOKEN}`
+    );
     const data = await response.json();
     
-    // Convert city name to lowercase and hyphenate for matching
-    const normalizedCity = city.toLowerCase().replace(/\s+/g, '-');
-    
-    // Get city data from the cities object
-    const cityData = data.cities[normalizedCity];
-
-    if (cityData) {
+    if (data.status === 'ok') {
       return {
-        city: cityData.location.name,
-        aqi: cityData.aqi
+        city: data.data.city.name,
+        stationName: data.data.city.name,
+        aqi: data.data.aqi,
+        measurements: {
+          pm25: data.data.iaqi.pm25,
+          pm10: data.data.iaqi.pm10,
+          co: data.data.iaqi.co,
+          no2: data.data.iaqi.no2,
+          so2: data.data.iaqi.so2,
+        },
+        dominentpol: data.data.dominentpol,
+        time: data.data.time.s,
+        forecast: data.data.forecast,
+        attribution: data.data.attribution,
       };
     }
-    
-    // Return Delhi data as fallback
-    return {
-      city: "Delhi US Embassy, India (दिल्ली अमेरिकी दूतावास)",
-      aqi: 483 
-    };
+    throw new Error('Failed to fetch AQI data');
   } catch (error) {
     console.error('Error fetching AQI data:', error);
     // Return default data if fetch fails
     return {
-      city: "Delhi US Embassy, India (दिल्ली अमेरिकी दूतावास)",
-      aqi: 483
+      city: "Delhi US Embassy, India",
+      aqi: 483,
+      measurements: {
+        pm25: { v: 35 },
+        co: { v: 0.5 },
+        no2: { v: 23 },
+        so2: { v: 10 }
+      },
+      stationName: "Delhi US Embassy",
     };
   }
 }
 
-// Add these new interfaces and helper function at the top
 export const LocationAwareHeader: React.FC = () => {
   const { airQuality, setAirQuality } = useAirQuality();
 
   useEffect(() => {
-    // Try to get user's location in the background
     if ("geolocation" in navigator) {
       console.log('Geolocation is available');
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           try {
-            console.log('Getting current position');
-            // Get city name from coordinates
-            const response = await fetch(
-              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
-            );
-            const data = await response.json();
-            console.log('Detected city:', data.city);
-            // Update AQI data for the detected city
-            const cityAQI = await fetchCityAQI(data.city);
-            setAirQuality(cityAQI);
+            const { latitude, longitude } = position.coords;
+            console.log('Getting data for coordinates:', latitude, longitude);
+            const aqiData = await fetchAQIByCoordinates(latitude, longitude);
+            setAirQuality(aqiData);
           } catch (err) {
-            console.error('Location detection failed:', err);
-            // Keep using default Delhi data
+            console.error('AQI data fetch failed:', err);
           }
         },
         (err) => {
           console.error('Location permission denied:', err);
-          // Keep using default Delhi data
         }
       );
     }
@@ -124,7 +194,7 @@ export const LocationAwareHeader: React.FC = () => {
         <span className="text-gray-200 block mb-4"><strong>But, no one understands it.</strong></span>
         <span className="text-gray-400 block mb-4">Keep scrolling & see the <strong>real impact</strong> of air pollution on our health.</span>
       </p>
-      <DangerLevel aqi={airQuality.aqi} />
+      <DangerLevel {...airQuality} />
     </div>
   );
 };

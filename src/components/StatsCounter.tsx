@@ -75,12 +75,6 @@ export default function StatsCounter({ startTime }: StatsCounterProps) {
           label="Indians Died Since You Arrived" 
           value={<span className="font-mono">{stats.deaths.toFixed(1)}</span>} 
         />
-        <DamageStat 
-          className="text-center"
-          value={<span className="font-mono">
-            {Array(Math.floor(stats.deaths)).fill('💀').join('')}
-          </span>} 
-        />
       </div>
     </div>
   );
