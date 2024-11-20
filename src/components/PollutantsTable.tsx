@@ -63,26 +63,28 @@ export default function PollutantsTable({ measurements, colors }: PollutantsTabl
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <tbody>
-          {pollutantInfo.map((pollutant) => (
-            <React.Fragment key={pollutant.name}>
-              <tr 
-                className="border-b border-gray-800 hover:bg-black/20"
-              >
-                <td className="py-2 px-4 font-medium text-gray-300 flex items-center gap-2">
-                  <span className="text-gray-400 w-4 h-4">{pollutant.icon}</span>
-                  <span>{pollutant.name}</span>
-                </td>
-                <td className={`py-2 px-4 text-right ${colors.text} font-bold`}>
-                  {pollutant.value ? `${pollutant.value} ${pollutant.unit}` : '-'}
-                </td>
-              </tr>
-              <tr className="bg-black/10">
-                <td colSpan={2} className="py-2 px-4 text-gray-400 text-sm text-center">
-                  {pollutant.explanation}
-                </td>
-              </tr>
-            </React.Fragment>
-          ))}
+          {pollutantInfo
+            .filter((pollutant) => pollutant.value !== undefined)
+            .map((pollutant) => (
+              <React.Fragment key={pollutant.name}>
+                <tr 
+                  className="border-b border-gray-800 hover:bg-black/20"
+                >
+                  <td className="py-2 px-4 font-medium text-gray-300 flex items-center gap-2">
+                    <span className="text-gray-400 w-4 h-4">{pollutant.icon}</span>
+                    <span>{pollutant.name}</span>
+                  </td>
+                  <td className={`py-2 px-4 text-right ${colors.text} font-bold`}>
+                    {pollutant.value ? `${pollutant.value} ${pollutant.unit}` : '-'}
+                  </td>
+                </tr>
+                <tr className="bg-black/10">
+                  <td colSpan={2} className="py-2 px-4 text-gray-400 text-sm text-center">
+                    {pollutant.explanation}
+                  </td>
+                </tr>
+              </React.Fragment>
+            ))}
         </tbody>
       </table>
     </div>

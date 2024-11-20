@@ -39,23 +39,34 @@ const DangerLevel: React.FC<AirQualityData> = ({
   }
 
   return (
-    <div className="space-y-6">
-      {/* Main AQI Display */}
+    <div className="space-y-6 mt-8">
       <div className={`relative flex flex-col p-6 rounded-xl border ${colors.border} bg-black/40 backdrop-blur-sm`}>
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex-1">
-            <div className={`text-4xl font-bold ${colors.text} mb-2`}>{aqi}</div>
-            <div className="text-lg text-gray-300">Air Quality Index</div>
-            {dominentpol && (
-              <div className="text-sm text-gray-400 mt-2">
-                Main Pollutant: {dominentpol?.toUpperCase()}
-              </div>
-            )}
+        {/* Location accuracy banner */}
+        <div className="absolute inset-x-0 -top-3 flex justify-center">
+          <div className="px-4 py-1 rounded-full bg-gray-800/80 backdrop-blur-sm text-xs text-gray-300 border border-gray-700">
+            Most accurate AQI based on your location
+          </div>
+        </div>
+
+        {/* Updated AQI Display */}
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <div className="text-lg text-gray-300 mb-1">AQI</div>
+            <div className={`text-4xl font-bold ${colors.text}`}>{aqi}</div>
           </div>
           <Skull className={`w-16 h-16 ${colors.text} animate-pulse`} />
         </div>
 
-        {/* Source Information */}
+        <div className="text-sm text-gray-400 mb-4">
+          Most accurate AQI reading based on your current location
+        </div>
+
+        {dominentpol && (
+          <div className="text-sm text-gray-400 mb-4">
+            Main Pollutant: {dominentpol?.toUpperCase().replace('PM25', 'PM2.5')}
+          </div>
+        )}
+
         {(stationName || timeAgo || attribution) && (
           <div className="space-y-3 border-t border-gray-800 pt-4">
             {stationName && (

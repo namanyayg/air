@@ -18,6 +18,7 @@ import { LocationAwareHeader } from '@/components/LocationAwareHeader';
 import { AirQualityProvider, useAirQuality } from '@/contexts/AirQualityContext';
 import ForecastChart from '@/components/ForecastChart';
 import PollutantsTable from '@/components/PollutantsTable';
+import TraditionalWisdomSection from '@/components/TraditionalWisdomSection';
 
 const getColorClasses = (aqi: number) => {
   if (aqi > 300) return {
@@ -161,6 +162,7 @@ const ToxicAirDashboard: React.FC = () => {
           measurements={airQuality.measurements} 
           colors={getColorClasses(airQuality.aqi)} 
         />
+        <TraditionalWisdomSection />
         <ShareButton text="Share with Family" />
         <HopeSection />
         <SourcesSection />
