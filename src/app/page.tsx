@@ -87,7 +87,7 @@ const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
       icon: Activity,
       title: "Cigarette Equivalent",
       // Updated based on Berkeley Earth study correlating PM2.5 to cigarette smoking
-      value: `${Array(Math.floor(aqi * 2/22)).fill('🚬').join('')}`, // 22 μg/m3 PM2.5 ≈ 1 cigarette
+      value: `${Array(Math.floor(aqi/22)).fill('🚬').join('')}`, // 22 μg/m3 PM2.5 ≈ 1 cigarette
       description: "Each day in this air equals smoking these many cigarettes"
     },
   };
