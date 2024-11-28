@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { 
-  Shield, User
+  Shield
 } from 'lucide-react';
 // import GlowingText from '@/components/GlowingText';
 import StatsCounter from '@/components/StatsCounter';

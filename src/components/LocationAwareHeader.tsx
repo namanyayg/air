@@ -38,16 +38,16 @@ interface DangerLevelProps extends AirQualityData {
 interface ForecastDay {
   avg: number;
   day: string;
-  max: number;
-  min: number;
+  max?: number;
+  min?: number;
 }
 
 interface Forecast {
-  daily: {
-    o3: ForecastDay[];
-    pm10: ForecastDay[];
-    pm25: ForecastDay[];
-    uvi: ForecastDay[];
+  daily?: {
+    o3?: ForecastDay[];
+    pm10?: ForecastDay[];
+    pm25?: ForecastDay[];
+    uvi?: ForecastDay[];
   };
 }
 
@@ -141,8 +141,8 @@ const LoadingSkeleton = () => {
 const HistoricalStats: React.FC<{ forecast: Forecast }> = ({ forecast }) => {
   const getHistoricalAQI = (date: string) => {
     const dayData = forecast.daily;
-    const pm25AQI = dayData.pm25.find(d => d.day === date)?.max || 0;
-    const pm10AQI = dayData.pm10.find(d => d.day === date)?.max || 0;
+    const pm25AQI = dayData?.pm25?.find(d => d.day === date)?.avg || 0;
+    const pm10AQI = dayData?.pm10?.find(d => d.day === date)?.avg || 0;
     return Math.max(pm25AQI, pm10AQI);
   };
 
