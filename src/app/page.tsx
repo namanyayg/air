@@ -16,7 +16,6 @@ import ImmunityMythSection from '@/components/ImmunityMyth';
 import Footer from '@/components/Footer';
 import { LocationAwareHeader } from '@/components/LocationAwareHeader';
 import { AirQualityProvider, useAirQuality } from '@/contexts/AirQualityContext';
-import ForecastChart from '@/components/ForecastChart';
 import PollutantsTable from '@/components/PollutantsTable';
 import TraditionalWisdomSection from '@/components/TraditionalWisdomSection';
 
@@ -95,7 +94,6 @@ const ToxicAirDashboard: React.FC = () => {
         <ImmunityMythSection />
         <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
         <StatsCounter startTime={startTime} />
-        <ForecastChart forecast={airQuality.forecast} />
         <PollutantsTable 
           measurements={airQuality.measurements} 
           colors={getColorClasses(airQuality.aqi)} 

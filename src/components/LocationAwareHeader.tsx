@@ -2,12 +2,53 @@
 import { useAirQuality } from "@/contexts/AirQualityContext";
 import { useEffect, useState } from "react";
 import { Skull, MapPin, Clock, ExternalLink } from "lucide-react";
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow, format } from 'date-fns';
 import { AirQualityData, fetchAQIByCoordinates } from "@/lib/utils";
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  TooltipItem,
+} from 'chart.js';
+
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip
+);
 
 // ============= Interfaces =============
 interface AQIStatsProps {
   aqi: number;
+}
+
+interface DangerLevelProps extends AirQualityData {
+  setLocalAQIData: (data: AirQualityData) => void;
+  setAirQuality: (data: AirQualityData) => void;
+  currentLocation: {latitude: number; longitude: number} | null;
+}
+
+interface ForecastDay {
+  avg: number;
+  day: string;
+  max: number;
+  min: number;
+}
+
+interface Forecast {
+  daily: {
+    o3: ForecastDay[];
+    pm10: ForecastDay[];
+    pm25: ForecastDay[];
+    uvi: ForecastDay[];
+  };
 }
 
 // ============= Utility Functions =============
@@ -62,7 +103,7 @@ const AQIStats: React.FC<AQIStatsProps> = ({ aqi }) => {
   );
 };
 
-const LoadingSkeleton: React.FC = () => {
+const LoadingSkeleton = () => {
   return (
     <div className="space-y-6 mt-8">
       <div className="relative flex flex-col p-6 rounded-xl border border-gray-700 bg-black/40">
@@ -97,124 +138,120 @@ const LoadingSkeleton: React.FC = () => {
   );
 };
 
+const HistoricalStats: React.FC<{ forecast: Forecast }> = ({ forecast }) => {
+  const getHistoricalAQI = (date: string) => {
+    const dayData = forecast.daily;
+    const pm25AQI = dayData.pm25.find(d => d.day === date)?.max || 0;
+    const pm10AQI = dayData.pm10.find(d => d.day === date)?.max || 0;
+    return Math.max(pm25AQI, pm10AQI);
+  };
+
+  const today = format(new Date(), 'yyyy-MM-dd');
+  const yesterday = format(new Date(Date.now() - 86400000), 'yyyy-MM-dd');
+  const twoDaysAgo = format(new Date(Date.now() - 172800000), 'yyyy-MM-dd');
+  
+  const todayAQI = getHistoricalAQI(today);
+  const yesterdayAQI = getHistoricalAQI(yesterday);
+  const twoDaysAgoAQI = getHistoricalAQI(twoDaysAgo);
+
+  const yesterdayCigarettes = Math.floor(yesterdayAQI/22);
+  const yesterdayColors = getColorClasses(yesterdayAQI);
+
+  const chartData = {
+    labels: ['2 Days Ago', 'Yesterday', 'Today'],
+    datasets: [{
+      data: [twoDaysAgoAQI, yesterdayAQI, todayAQI],
+      borderColor: 'rgb(239, 68, 68)',
+      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+      tension: 0,
+      pointRadius: 4,
+      pointBackgroundColor: 'rgb(239, 68, 68)',
+      pointBorderColor: 'rgb(0, 0, 0)',
+      pointBorderWidth: 2,
+    }]
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: 'rgb(255, 255, 255)',
+        bodyColor: 'rgb(255, 255, 255)',
+        padding: 12,
+        displayColors: false,
+        callbacks: {
+          label: (context: TooltipItem<'line'>) => `AQI: ${context.raw}`
+        }
+      }
+    },
+    scales: {
+      x: { 
+        display: true,
+        grid: {
+          color: 'rgba(255, 255, 255, 0.1)',
+        },
+        ticks: {
+          color: 'rgba(255, 255, 255, 0.5)',
+        }
+      },
+      y: { 
+        display: true,
+        grid: {
+          color: 'rgba(255, 255, 255, 0.1)',
+        },
+        ticks: {
+          color: 'rgba(255, 255, 255, 0.5)',
+        }
+      }
+    }
+  };
+
+  return (
+    <div className="mt-4 pt-4 border-t border-gray-800">
+      <div className="flex items-start justify-between gap-4">
+        <div className="text-left">
+          <div className="text-sm text-gray-300">Yesterday</div>
+          <div className={`text-3xl font-semibold ${yesterdayColors.text}`}>{yesterdayAQI}</div>
+        </div>
+        <div className="flex-1 text-right">
+          <div className="text-gray-400">
+            <div className="my-1">
+              <div className="text-lg">{Array(yesterdayCigarettes).fill('🚬').join('')}</div>
+              <div className="italic text-sm">You smoked {yesterdayCigarettes} cigarettes yesterday</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4 h-32">
+        <Line data={chartData} options={chartOptions} />
+      </div>
+    </div>
+  );
+};
+
 // ============= Main Components =============
-const DangerLevel: React.FC<AirQualityData & {
-  setLocalAQIData: (data: AirQualityData) => void;
-  setAirQuality: (data: AirQualityData) => void;
-}> = ({ 
+const DangerLevel: React.FC<DangerLevelProps> = ({ 
   aqi, 
   measurements, 
   stationName,
   dominentpol, 
   time,
   attribution,
-  forecast,
   coordinates,
-  setLocalAQIData,
-  setAirQuality
+  currentLocation,
+  forecast,
 }) => {
-  const [userCoordinates, setUserCoordinates] = useState<{latitude: number, longitude: number} | null>(null);
-  const [permissionDenied, setPermissionDenied] = useState(false);
-
-  const getCurrentPosition = () => {
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        console.log('Successfully got location');
-        setPermissionDenied(false);
-        const coords = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        };
-        setUserCoordinates(coords);
-        
-        try {
-          // Fetch new data and update both states
-          const newData = await fetchAQIByCoordinates(coords.latitude, coords.longitude);
-          setLocalAQIData(newData);
-          setAirQuality(newData);
-        } catch (error) {
-          console.error('Failed to refetch AQI:', error);
-        }
-      },
-      (error) => {
-        console.log('Failed to get location:', error);
-        if (error.code === error.PERMISSION_DENIED) {
-          setPermissionDenied(true);
-        }
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      }
-    );
-  };
-
-  useEffect(() => {
-    // Calculate yesterday's AQI from forecast
-    if (forecast?.daily) {
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-      const yesterdayStr = yesterday.toISOString().split('T')[0];
-
-      const pollutants = ['pm25', 'pm10', 'o3'] as const;
-      let maxAvg = 0;
-
-      pollutants.forEach(pollutant => {
-        const yesterdayData = forecast.daily?.[pollutant]?.find(d => d.day === yesterdayStr);
-        if (yesterdayData?.avg && yesterdayData.avg > maxAvg) {
-          maxAvg = yesterdayData.avg;
-        }
-      });
-
-      // setYesterdayAQI(maxAvg || null);
-    }
-  }, [forecast]);
-
   const colors = getColorClasses(aqi);
   const timeAgo = time ? formatDistanceToNow(new Date(time), { addSuffix: true }) : null;
 
   if (!aqi || !measurements) {
     return <LoadingSkeleton />;
   }
-
-  // Modify renderLocationPrompt to always show the button unless denied or already using location
-  const renderLocationPrompt = () => {
-    if (permissionDenied) {
-      return (
-        <div className="w-full flex flex-col items-center my-4 gap-2">
-          <div className="text-sm text-gray-400 text-center">
-            Location access is denied. To enable:
-            <ol className="list-decimal list-inside mt-2 text-left">
-              <li>Click the lock/info icon in your browser's address bar</li>
-              <li>Find "Location" in the site settings</li>
-              <li>Change the permission to "Allow"</li>
-              <li>Refresh the page</li>
-            </ol>
-          </div>
-        </div>
-      );
-    }
-
-    // Show button if we're not already using user's location
-    if (!userCoordinates) {
-      return (
-        <div className="w-full flex flex-col items-center mt-4">
-          <button
-            onClick={getCurrentPosition}
-            className="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 
-              text-sm text-white transition-colors duration-200 
-              flex items-center justify-center gap-2"
-          >
-            <MapPin className="w-4 h-4" />
-            Use Current Location for data
-          </button>
-        </div>
-      );
-    }
-
-    return null;
-  };
 
   return (
     <div className={`relative flex flex-col p-6 rounded-xl border ${colors.border} bg-black/40 backdrop-blur-sm`}>
@@ -242,26 +279,28 @@ const DangerLevel: React.FC<AirQualityData & {
       {/* Daily Impact Stats */}
       <AQIStats aqi={aqi} />
 
-      {(stationName || timeAgo || attribution) && (
-        <div className="space-y-3 border-t border-gray-800 pt-4">
-          {stationName && (
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <MapPin className="w-4 h-4" />
-              <span>
-                Station{userCoordinates && coordinates && (
-                  <span> is&nbsp;
-                    {calculateDistance(
-                      userCoordinates.latitude,
-                      userCoordinates.longitude,
-                      coordinates.latitude,
-                      coordinates.longitude
-                    ).toFixed(1)} km away
-                  </span>
-                )}: {stationName}
-                
+      {/* Station info and time/attribution */}
+      {stationName && (
+        <div className="flex items-center gap-2 text-sm text-gray-400 border-t border-gray-800 pt-4 mt-2">
+          <MapPin className="w-4 h-4" />
+          <span>
+            Station{currentLocation && coordinates && (
+              <span> is&nbsp;
+                {calculateDistance(
+                  currentLocation.latitude,
+                  currentLocation.longitude,
+                  coordinates.latitude,
+                  coordinates.longitude
+                ).toFixed(1)} km away
               </span>
-            </div>
-          )}
+            )}: {stationName}
+          </span>
+        </div>
+      )}
+
+      
+      {(timeAgo || attribution) && (
+        <div className="space-y-3 pt-4">
           {timeAgo && (
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <Clock className="w-4 h-4" />
@@ -282,32 +321,88 @@ const DangerLevel: React.FC<AirQualityData & {
           ))}
         </div>
       )}
-      {renderLocationPrompt()}
+
+      {/* Add Share Button */}
+      <div className="flex flex-col items-center gap-2 py-2 mt-4">
+        <p className="text-sm text-gray-300 text-center italic">Help your loved ones protect their health</p>
+        <button 
+          onClick={async () => {
+            const shareData = {
+              title: "Air Pollution Alert",
+              text: "Protect your family - See how our air is affecting our children and elderly RIGHT NOW! \n\nStay informed, stay safe!",
+              url: "https://air.nmn.gl"
+            };
+
+            try {
+              if (navigator.share) {
+                await navigator.share(shareData);
+              } else {
+                const shareText = encodeURIComponent(
+                  "Protect your family - See how our air is affecting our children and elderly RIGHT NOW! \n\nhttps://air.nmn.gl\n\nStay informed, stay safe!"
+                );
+                const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
+                window.open(whatsappUrl, '_blank');
+              }
+            } catch (err) {
+              console.error('Error sharing:', err);
+            }
+          }}
+          className="px-6 py-2 bg-blue-500/50 hover:bg-blue-500/30 text-blue-100 rounded-full border border-blue-500/90 transition-all duration-200 flex items-center gap-2"
+        >
+          <span>Share Air Quality Alert</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+            <polyline points="16 6 12 2 8 6"/>
+            <line x1="12" y1="2" x2="12" y2="15"/>
+          </svg>
+        </button>
+      </div>
+
+      {/* Historical Stats */}
+      {forecast && <HistoricalStats forecast={forecast} />}
+
     </div>
   );
 };
 
-export const LocationAwareHeader: React.FC = () => {
+export const LocationAwareHeader = () => {
   const { airQuality, setAirQuality } = useAirQuality();
   const [localAQIData, setLocalAQIData] = useState<AirQualityData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentLocation, setCurrentLocation] = useState<{latitude: number, longitude: number} | null>(null);
 
   useEffect(() => {
-    console.log('LocationAwareHeader useEffect triggered');
-    
     const fetchInitialData = async () => {
       console.log('Starting fetchInitialData');
-      setIsLoading(true);
       
-      try {
-        const aqiData = await fetchAQIByCoordinates(0, 0);
-        setLocalAQIData(aqiData);
-        setAirQuality(aqiData);
-      } catch (err) {
-        console.error('Initial AQI data fetch failed:', err);
-      } finally {
-        setIsLoading(false);
-      }
+      // First fetch default location data immediately
+      const defaultData = await fetchAQIByCoordinates(0, 0);
+      setLocalAQIData(defaultData);
+      setAirQuality(defaultData);
+      
+      // Try to get user location
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          console.log('Successfully got location');
+          const coords = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+          setCurrentLocation(coords);
+          
+          const aqiData = await fetchAQIByCoordinates(coords.latitude, coords.longitude);
+          setLocalAQIData(aqiData);
+          setAirQuality(aqiData);
+        },
+        (error) => {
+          console.error('Location fetch failed:', error);
+          // We already have default data, so no need for fallback
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000
+        }
+      );
     };
 
     fetchInitialData();
@@ -320,6 +415,7 @@ export const LocationAwareHeader: React.FC = () => {
         {...(localAQIData || airQuality)} 
         setLocalAQIData={setLocalAQIData}
         setAirQuality={setAirQuality}
+        currentLocation={currentLocation}
       />
     </div>
   );
