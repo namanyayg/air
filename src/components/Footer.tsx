@@ -13,9 +13,9 @@ export default function Footer() {
             Join our <a href="https://t.me/fightpollution" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Telegram group</a> to fight pollution together
           </p>
           <p>
-            &quot;Air&quot; is Non-Profit and is fully open source. Contributions &amp; ideas are welcome!
+            Non-Profit and fully open source. Contributions &amp; ideas are welcome!
           </p>
-          <p className="text-gray-500">जनहित में जारी © 2024</p>
+          <p className="text-gray-500">जनहित में जारी</p>
           <p className="text-gray-300 mt-4">Jai Hind 🇮🇳</p>
         </div>
       </div>

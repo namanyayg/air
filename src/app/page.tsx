@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { 
-  Activity, Clock, Shield, User
+  Shield, User
 } from 'lucide-react';
 // import GlowingText from '@/components/GlowingText';
 import StatsCounter from '@/components/StatsCounter';
@@ -75,67 +75,6 @@ const NewbornImpactSection: React.FC = () => {
   );
 };
 
-
-// Update DailyImpactSection with scientifically-validated impacts
-const DailyImpactSection: React.FC<{ aqi: number }> = ({ aqi }) => {
-  const impacts: Record<string, {
-    icon: React.ElementType,
-    title: string,
-    value: string,
-    description: string
-  }> = {
-    cigarettes: {
-      icon: Activity,
-      title: "Cigarette Equivalent",
-      // Updated based on Berkeley Earth study correlating PM2.5 to cigarette smoking
-      value: `${Array(Math.floor(aqi/22)).fill('🚬').join('')}`, // 22 μg/m3 PM2.5 ≈ 1 cigarette
-      description: "Each day in this air equals smoking these many cigarettes"
-    },
-  };
-
-  // Only add life impact if hours lost is greater than 0
-  const hoursLost = Math.floor(aqi/180);
-  if (hoursLost > 0) {
-    impacts.life = {
-      icon: Clock,
-      title: "Life Impact",
-      value: `${hoursLost} hours lost`,
-      description: "Each day in severe pollution reduces life expectancy"
-    };
-  }
-
-  return (
-    <section>
-      <h2 className="text-2xl font-bold mb-2 text-center">
-        Today&apos;s Health Impact 🧑‍⚕️
-      </h2>
-      <p className="text-center text-red-500 mb-6">
-        Current air quality is affecting your body
-      </p>
-      
-      <div className="grid grid-cols-1 gap-4">
-        {Object.entries(impacts).map(([key, impact]) => (
-          <div 
-            key={key}
-            className="bg-black/50 backdrop-blur-xl rounded-lg p-4 border border-red-500/30"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <impact.icon className="w-6 h-6 text-red-500" />
-              <h3 className="text-lg font-bold">{impact.title}</h3>
-            </div>
-            <div className="text-2xl font-bold text-red-400 mb-2">
-              {impact.value}
-            </div>
-            <p className="text-gray-300">
-              {impact.description}
-            </p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
 // Main Dashboard Component
 const ToxicAirDashboard: React.FC = () => {
   const [startTime] = useState<number>(Date.now());
@@ -147,8 +86,8 @@ const ToxicAirDashboard: React.FC = () => {
       
       <div className="relative max-w-md mx-auto p-4 space-y-6">
         <LocationAwareHeader />
-        <DailyImpactSection aqi={airQuality.aqi} />
         <ShareButton text="Share the Truth" color="emerald" icon={User} />
+        <HopeSection />
         <AgeImpact aqi={airQuality.aqi} />
         {/* <AQITable airData={airTableData} /> */}
         <NewbornImpactSection />
@@ -163,8 +102,6 @@ const ToxicAirDashboard: React.FC = () => {
           colors={getColorClasses(airQuality.aqi)} 
         />
         <TraditionalWisdomSection />
-        <ShareButton text="Share with Family" />
-        <HopeSection />
         <SourcesSection />
         <Footer />
       </div>

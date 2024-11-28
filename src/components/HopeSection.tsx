@@ -25,7 +25,7 @@ export default function HopeSection() {
   );
 
   return (
-    <section className="pt-8">
+    <section>
       <h2 className="text-2xl font-bold mb-2 text-center">
         There is still hope&hellip; 🤞
       </h2>
