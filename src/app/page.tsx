@@ -86,7 +86,6 @@ const ToxicAirDashboard: React.FC = () => {
       
       <div className="relative max-w-md mx-auto p-4 space-y-6">
         <LocationAwareHeader />
-        <ShareButton text="Share the Truth" color="emerald" icon={User} />
         <HopeSection />
         <AgeImpact aqi={airQuality.aqi} />
         {/* <AQITable airData={airTableData} /> */}

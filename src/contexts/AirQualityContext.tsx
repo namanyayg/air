@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-
+import { fetchAQIByCoordinates } from '@/lib/utils';
 interface AirQualityData {
   aqi: number;
   city: string;
@@ -43,9 +43,17 @@ interface AirQualityData {
 interface AirQualityContextType {
   airQuality: AirQualityData;
   setAirQuality: (data: AirQualityData) => void;
+  refetchAQI: (lat: number, lon: number) => Promise<void>;
 }
 
-const AirQualityContext = createContext<AirQualityContextType | undefined>(undefined);
+const AirQualityContext = createContext<AirQualityContextType>({
+  airQuality: {
+    city: 'Delhi',
+    aqi: 449
+  },
+  setAirQuality: () => {},
+  refetchAQI: async () => {},
+});
 
 export const AirQualityProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [airQuality, setAirQuality] = useState<AirQualityData>({
@@ -53,8 +61,17 @@ export const AirQualityProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     aqi: 449
   });
 
+  const refetchAQI = async (lat: number, lon: number) => {
+    try {
+      const data = await fetchAQIByCoordinates(lat, lon);
+      setAirQuality(data);
+    } catch (error) {
+      console.error('Failed to refetch AQI:', error);
+    }
+  };
+
   return (
-    <AirQualityContext.Provider value={{ airQuality, setAirQuality }}>
+    <AirQualityContext.Provider value={{ airQuality, setAirQuality, refetchAQI }}>
       {children}
     </AirQualityContext.Provider>
   );
