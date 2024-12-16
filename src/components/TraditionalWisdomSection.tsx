@@ -20,16 +20,11 @@ export default function TraditionalWisdomSection() {
   return (
     <section className="pt-8">
       <h2 className="text-2xl font-bold mb-2 text-center">
-        Practical Wisdom 🌿
+        Practical Guidelines 🌿
       </h2>
       
-      <p className="text-gray-200 text-center mb-6">
-        Our ancestors had powerful ideas for good health.<br />
-        These traditional methods are backed by modern science.
-      </p>
-      
       <div className="space-y-4">
-        <WisdomCard
+        {/* <WisdomCard
           icon={Coffee}
           title="Protective Kaadha Recipe"
           description={<>
@@ -64,7 +59,7 @@ export default function TraditionalWisdomSection() {
               <li>Excessive dairy</li>
             </ul>
           </>}
-        />
+        /> */}
 
         <WisdomCard
           icon={Wind}
@@ -81,7 +76,7 @@ export default function TraditionalWisdomSection() {
           </>}
         />
 
-        <WisdomCard
+        {/* <WisdomCard
           icon={Leaf}
           title="Plant These at Home"
           description={<>
@@ -94,7 +89,7 @@ export default function TraditionalWisdomSection() {
             </ul>
             <p className="mt-2 text-sm">Place 3-4 plants per 100 sq ft for best results</p>
           </>}
-        />
+        /> */}
       </div>
     </section>
   );
