@@ -1,4 +1,4 @@
-import { Leaf, Apple, Coffee, Wind } from 'lucide-react';
+import { Wind } from 'lucide-react';
 
 interface WisdomCardProps {
   icon: React.ElementType;
