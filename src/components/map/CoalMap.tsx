@@ -40,16 +40,31 @@ interface PowerStationsData {
   powerStations: PowerStation[];
 }
 
-interface StateData {
+type StateData = {
   totalCapacity: number;
-  powerStations: PowerStation[];
+  powerStations: Array<{
+    name: string;
+    technical: {
+      capacityMW: number;
+      operator: string;
+      sector: string;
+    };
+    emissions: {
+      annual: {
+        co2: number;
+        sox: number;
+        nox: number;
+        pm: number;
+      };
+    };
+  }>;
   totalEmissions: {
     co2: number;
     sox: number;
     nox: number;
     pm: number;
   };
-}
+};
 
 interface RegionData {
   value: number;
@@ -61,7 +76,7 @@ interface RegionDataMap {
   [key: string]: RegionData;
 }
 
-interface HoverProps {
+interface HoverComponentProps {
   value: {
     name: string;
     value: number;
@@ -93,7 +108,18 @@ export default function CoalMap() {
             };
           }
           
-          acc[state].powerStations.push(station);
+          acc[state].powerStations.push({
+            name: station.name,
+            technical: {
+              capacityMW: station.technical.capacityMW,
+              operator: station.technical.operator,
+              sector: station.technical.sector
+            },
+            emissions: {
+              annual: station.emissions.annual
+            }
+          });
+          
           acc[state].totalCapacity += station.technical.capacityMW;
           acc[state].totalEmissions.co2 += station.emissions.annual.co2;
           acc[state].totalEmissions.sox += station.emissions.annual.sox;
@@ -129,7 +155,7 @@ export default function CoalMap() {
   return (
     <IndiaMap
       regionData={regionData}
-      hoverComponent={({ value }: HoverProps) => {
+      hoverComponent={({ value }: HoverComponentProps) => {
         const data = value.stateData;
         if (!data) return null;
         
