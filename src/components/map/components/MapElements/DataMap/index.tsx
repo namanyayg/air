@@ -1,15 +1,24 @@
 import React from 'react'
 import * as d3 from 'd3-geo'
+import { Feature, Geometry } from 'geojson'
 
 import { RegionData } from '../../../index'
 import DataMapState from './DataMapState'
 import { ScaleLinear } from 'd3-scale'
 
+interface TopoFeature extends Feature {
+  id: string;
+  properties: {
+    name: string;
+  };
+  geometry: Geometry;
+}
+
 interface DataMapProps {
-  topoData: any[]
+  topoData: TopoFeature[]
   svgWidth: number
   svgHeight: number
-  mouseMoveOnDatamap(data: any): void
+  mouseMoveOnDatamap(event: React.MouseEvent): void
   mouseEnterOnDatamap(): void
   mouseLeaveDatamap(): void
   mouseEnterOnState(name: string, value: number): void
@@ -58,20 +67,22 @@ class DataMap extends React.Component<DataMapProps> {
 
     return this.state.topoJSONfeatures.map((feature, index) => {
       const stateValue = this.props.regionData[feature.properties.name]
-      const fillColor = !stateValue ? noDataColor : colorScale(stateValue.value)
+      const fillColor = !stateValue ? noDataColor : String(colorScale(stateValue.value))
+      const pathData = this.drawPath(feature)
+      if (!pathData) return null
+
       return (
         <DataMapState
           key={feature.id}
           index={index}
-          // @ts-ignore
-          path={() => this.drawPath(feature)}
+          path={() => pathData}
           name={feature.properties.name}
           fillColor={fillColor}
           hoverColor={hoverColor}
           borderColor={borderColor}
           hoverBorderColor={hoverBorderColor}
           mouseEnterOnState={this.handleMouseEnterOnState}
-          value={stateValue}
+          value={stateValue ? stateValue.value : 0}
         />
       )
     })
