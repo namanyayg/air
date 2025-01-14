@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} font-sans antialiased`}>
+      <body className={`${dmSans.variable} font-sans antialiased w-full max-w-full m-0`}>
         {children}
         <GoogleAnalytics gaId="G-NQXS67XNGL" />
       </body>

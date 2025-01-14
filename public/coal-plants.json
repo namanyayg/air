@@ -1,0 +1,3553 @@
+{
+  "powerStations": [
+    {
+      "name": "Vindhyachal Super Thermal Power Station",
+      "location": {
+        "city": "Vindhya Nagar",
+        "district": "Singrauli",
+        "state": "Madhya Pradesh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 24.098056,
+          "longitude": 82.671667
+        }
+      },
+      "technical": {
+        "unitCapacities": "6 x 210, 7x 500",
+        "capacityMW": 4760,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 23934422,
+          "sox": 189724,
+          "nox": 72971,
+          "pm": 29188
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Mundra Thermal Power Station",
+      "location": {
+        "city": "Mundra",
+        "district": "Kutch",
+        "state": "Gujarat",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.822778,
+          "longitude": 69.552778
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 330, 5 X 660",
+        "capacityMW": 4620,
+        "operator": "Adani Power",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 23230469,
+          "sox": 184144,
+          "nox": 70825,
+          "pm": 28330
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Mundra Ultra Mega Power Project",
+      "location": {
+        "city": "Mundra",
+        "district": "Kutch",
+        "state": "Gujarat",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.822778,
+          "longitude": 69.552778
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 X 800",
+        "capacityMW": 4000,
+        "operator": "Tata Power",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 20112960,
+          "sox": 159432,
+          "nox": 61320,
+          "pm": 24528
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sasan Ultra Mega Power Project",
+      "location": {
+        "city": "Sasan",
+        "district": "Singrauli",
+        "state": "Madhya Pradesh",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "6 x 660",
+        "capacityMW": 3960,
+        "operator": "Reliance Power",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 19911830,
+          "sox": 157838,
+          "nox": 60707,
+          "pm": 24283
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "KSK Mahanadi Power Project",
+      "location": {
+        "city": "Nariyara",
+        "district": "Janjgir–Champa district",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.822778,
+          "longitude": 69.552778
+        }
+      },
+      "technical": {
+        "unitCapacities": "6 X 600",
+        "capacityMW": 3600,
+        "operator": "KSK Energy Ventures",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 18101664,
+          "sox": 143489,
+          "nox": 55188,
+          "pm": 22075
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Jindal Tamnar Thermal Power Plant",
+      "location": {
+        "city": "Tamnar",
+        "district": "Raigarh",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.104444,
+          "longitude": 83.451111
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 250, 4 x 600",
+        "capacityMW": 3400,
+        "operator": "JSPL",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 17096016,
+          "sox": 135517,
+          "nox": 52122,
+          "pm": 20849
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Tirora Thermal Power Station",
+      "location": {
+        "city": "Tirora",
+        "district": "Gondia",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 21.416111,
+          "longitude": 79.9675
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 X 660",
+        "capacityMW": 3300,
+        "operator": "Adani Power",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 16593192,
+          "sox": 131531,
+          "nox": 50589,
+          "pm": 20236
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sipat Thermal Power Plant",
+      "location": {
+        "city": "Sipat",
+        "district": "Bilaspur",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.1325,
+          "longitude": 82.29
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 500,3 x 660",
+        "capacityMW": 2980,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 14984155,
+          "sox": 118777,
+          "nox": 45683,
+          "pm": 18273
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "RKM Powergen Thermal Power Plant",
+      "location": {
+        "city": "Dhobnipali",
+        "district": "Shakti",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "4×360",
+        "capacityMW": 1440,
+        "operator": "R. K. M Powergen Private Limited",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 7240666,
+          "sox": 57396,
+          "nox": 22075,
+          "pm": 8830
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Korba Super Thermal Power Plant",
+      "location": {
+        "city": "Jamani Palli",
+        "district": "Korba",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.386389,
+          "longitude": 82.682778
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 200, 4 x 500",
+        "capacityMW": 2600,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 13073424,
+          "sox": 103631,
+          "nox": 39858,
+          "pm": 15943
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sant Singaji Thermal Power Plant",
+      "location": {
+        "city": "Dogaliya, Mundi",
+        "district": "khandwa",
+        "state": "Madhya Pradesh",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 X 600, 2 X 660",
+        "capacityMW": 2520,
+        "operator": "MPPGC",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 12671165,
+          "sox": 100442,
+          "nox": 38632,
+          "pm": 15453
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Wanakbori Thermal Power Station",
+      "location": {
+        "city": "Wanakbori",
+        "district": "Kheda",
+        "state": "Gujarat",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.8775,
+          "longitude": 73.359722
+        }
+      },
+      "technical": {
+        "unitCapacities": "7 x 210, 1 × 800",
+        "capacityMW": 2270,
+        "operator": "GSECL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 11414105,
+          "sox": 90478,
+          "nox": 34799,
+          "pm": 13920
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Dada Dhuniwale Thermal Power Plant",
+      "location": {
+        "city": "Guyda, Mundi",
+        "district": "khandwa",
+        "state": "Madhya Pradesh",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 X 800",
+        "capacityMW": 1600,
+        "operator": "MPPGC",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 8045184,
+          "sox": 63773,
+          "nox": 24528,
+          "pm": 9811
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Amravati Thermal Power Plant",
+      "location": {
+        "city": "Nandgaonpeth",
+        "district": "Amravati",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 21.080278,
+          "longitude": 77.901667
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 X 270, (5 X 270[18])",
+        "capacityMW": 1350,
+        "operator": "Indiabulls",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6788124,
+          "sox": 53808,
+          "nox": 20695,
+          "pm": 8278
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Khaparkheda Thermal Power Station",
+      "location": {
+        "city": "Kaparkheda",
+        "district": "Nagpur",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 21.281944,
+          "longitude": 79.115
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 210, 1 x 500",
+        "capacityMW": 1340,
+        "operator": "MSPGCL (MAHAGENCO)",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6737842,
+          "sox": 53410,
+          "nox": 20542,
+          "pm": 8217
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sanjay Gandhi Thermal Power Station",
+      "location": {
+        "city": "Birsinghpur",
+        "district": "Umaria",
+        "state": "Madhya Pradesh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 23.305,
+          "longitude": 81.064167
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 210, 1 x 500",
+        "capacityMW": 1340,
+        "operator": "MPPGCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6737842,
+          "sox": 53410,
+          "nox": 20542,
+          "pm": 8217
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Essar Salaya Power Plant",
+      "location": {
+        "city": "Salaya",
+        "district": "Jamnagar district",
+        "state": "Gujarat",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2X600",
+        "capacityMW": 1200,
+        "operator": "Essar Energy",
+        "sector": "Private IPP"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "DB Thermal Project Ltd.",
+      "location": {
+        "city": "Tundri",
+        "district": "Janjgir-Champa",
+        "state": "Chhattisgarh",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 22.433333,
+          "longitude": 83.179722
+        }
+      },
+      "technical": {
+        "unitCapacities": "2X600",
+        "capacityMW": 1200,
+        "operator": "DB POWER",
+        "sector": "Private IPP"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Hasdeo Thermal Power Station",
+      "location": {
+        "city": "",
+        "district": "Korba",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.4125,
+          "longitude": 82.688611
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 210",
+        "capacityMW": 840,
+        "operator": "CSPGCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 4223722,
+          "sox": 33481,
+          "nox": 12877,
+          "pm": 5151
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Nashik Thermal Power Station",
+      "location": {
+        "city": "Nashik",
+        "district": "Nashik",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 19.980556,
+          "longitude": 73.891389
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 210",
+        "capacityMW": 630,
+        "operator": "MSPGCL (MAHAGENCO)",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 3167791,
+          "sox": 25111,
+          "nox": 9658,
+          "pm": 3863
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Lanco Amarkantak Power Plant",
+      "location": {
+        "city": "Pathadi",
+        "district": "Korba",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.245556,
+          "longitude": 82.723333
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 300",
+        "capacityMW": 600,
+        "operator": "Lanco Infratech",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 3016944,
+          "sox": 23915,
+          "nox": 9198,
+          "pm": 3679
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Wardha Warora Power Plant",
+      "location": {
+        "city": "Warora",
+        "district": "Chandrapur",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "4 x 135",
+        "capacityMW": 540,
+        "operator": "KSK Energy Ventures",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2715250,
+          "sox": 21523,
+          "nox": 8278,
+          "pm": 3311
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Dr Shyama Prasad Mukharjee Thermal Power Station",
+      "location": {
+        "city": "",
+        "district": "Korba",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 22.37,
+          "longitude": 82.721111
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 250",
+        "capacityMW": 500,
+        "operator": "CSPGCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2514120,
+          "sox": 19929,
+          "nox": 7665,
+          "pm": 3066
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Dahanu Thermal Power Station",
+      "location": {
+        "city": "Dahanu",
+        "district": "Thane",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 19.953333,
+          "longitude": 72.748333
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 250",
+        "capacityMW": 500,
+        "operator": "Adani Power",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2514120,
+          "sox": 19929,
+          "nox": 7665,
+          "pm": 3066
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Paras Thermal Power Station",
+      "location": {
+        "city": "Vidyutnagar",
+        "district": "Akola",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 20.715278,
+          "longitude": 76.793611
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 250",
+        "capacityMW": 500,
+        "operator": "MSPGCL (MAHAGENCO)",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2514120,
+          "sox": 19929,
+          "nox": 7665,
+          "pm": 3066
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "KSK Mahanadi Power Project",
+      "location": {
+        "city": "Nariyara",
+        "district": "Bilaspur",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "1 x 135",
+        "capacityMW": 135,
+        "operator": "KSK Energy Ventures",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 678812,
+          "sox": 5381,
+          "nox": 2070,
+          "pm": 828
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "NSPCL Bhilai Power Plant",
+      "location": {
+        "city": "Bhilai",
+        "district": "Durg",
+        "state": "Chhattisgarh",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 21.182778,
+          "longitude": 81.424444
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 250",
+        "capacityMW": 500,
+        "operator": "NSPCL",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2514120,
+          "sox": 19929,
+          "nox": 7665,
+          "pm": 3066
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Surat Thermal Power Station",
+      "location": {
+        "city": "Nani Naroli",
+        "district": "Surat",
+        "state": "Gujarat",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 21.396111,
+          "longitude": 73.106111
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 125",
+        "capacityMW": 500,
+        "operator": "Gujarat Industries Power Company Ltd.",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2514120,
+          "sox": 19929,
+          "nox": 7665,
+          "pm": 3066
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "CESC Chandrapur Thermal Power Station",
+      "location": {
+        "city": "Chandrapur",
+        "district": "Chandrapur",
+        "state": "Maharashtra",
+        "region": "Western",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 300",
+        "capacityMW": 600,
+        "operator": "CESC",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 3016944,
+          "sox": 23915,
+          "nox": 9198,
+          "pm": 3679
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Akrimota Thermal Power Station",
+      "location": {
+        "city": "Chher Nani",
+        "district": "Kutch",
+        "state": "Gujarat",
+        "region": "Western",
+        "coordinates": {
+          "latitude": 23.7725,
+          "longitude": 68.645556
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 125",
+        "capacityMW": 250,
+        "operator": "GMDC",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1257060,
+          "sox": 9965,
+          "nox": 3833,
+          "pm": 1533
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Rihand Thermal Power Station",
+      "location": {
+        "city": "Rihand Nagar",
+        "district": "Sonbhadra",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 24.0275,
+          "longitude": 82.791111
+        }
+      },
+      "technical": {
+        "unitCapacities": "6 x 500",
+        "capacityMW": 3000,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 15084720,
+          "sox": 119574,
+          "nox": 45990,
+          "pm": 18396
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Singrauli Super Thermal Power Station",
+      "location": {
+        "city": "Shaktinagar",
+        "district": "Sonbhadra",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 24.104444,
+          "longitude": 82.7075
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 x 200, 2 x 500",
+        "capacityMW": 2000,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 10056480,
+          "sox": 79716,
+          "nox": 30660,
+          "pm": 12264
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "NTPC Dadri",
+      "location": {
+        "city": "Vidyutnagar",
+        "district": "Gautam Budh Nagar",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 28.601111,
+          "longitude": 77.606944
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 210, 2 x 490",
+        "capacityMW": 1820,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 9151397,
+          "sox": 72542,
+          "nox": 27901,
+          "pm": 11160
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Anpara Thermal Power Station",
+      "location": {
+        "city": "Anpara",
+        "district": "Sonbhadra",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 24.203056,
+          "longitude": 82.788333
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 210, 2 x 500, 2X500",
+        "capacityMW": 2630,
+        "operator": "UPRVUNL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 13224271,
+          "sox": 104827,
+          "nox": 40318,
+          "pm": 16127
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Suratgarh Super Thermal Power Plant",
+      "location": {
+        "city": "Suratgarh",
+        "district": "Sri Ganganagar",
+        "state": "Rajasthan",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 29.182222,
+          "longitude": 74.019167
+        }
+      },
+      "technical": {
+        "unitCapacities": "6 x 250",
+        "capacityMW": 1500,
+        "operator": "RVUNL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 7542360,
+          "sox": 59787,
+          "nox": 22995,
+          "pm": 9198
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Talwandi Sabo Power Project",
+      "location": {
+        "city": "Banawala",
+        "district": "Mansa",
+        "state": "Punjab",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 29.891944,
+          "longitude": 75.214722
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 × 660",
+        "capacityMW": 1980,
+        "operator": "Vedanta Limited",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 9955915,
+          "sox": 78919,
+          "nox": 30353,
+          "pm": 12141
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Kota Super Thermal Power Plant",
+      "location": {
+        "city": "Kota",
+        "district": "Kota",
+        "state": "Rajasthan",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 25.171389,
+          "longitude": 75.815
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 110, 3 x 210, 2 x 195",
+        "capacityMW": 1240,
+        "operator": "RVUNL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6235018,
+          "sox": 49424,
+          "nox": 19009,
+          "pm": 7604
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Rosa Thermal Power Plant",
+      "location": {
+        "city": "Rosa",
+        "district": "Shahjahanpur",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 27.818611,
+          "longitude": 79.936111
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 300",
+        "capacityMW": 1200,
+        "operator": "Reliance Power Limited",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Rajiv Gandhi Thermal Power Station",
+      "location": {
+        "city": "Khedar",
+        "district": "Hisar",
+        "state": "Haryana",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 29.356944,
+          "longitude": 75.867222
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 600",
+        "capacityMW": 1200,
+        "operator": "HPGCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Indira Gandhi Super Thermal Power Project",
+      "location": {
+        "city": "Jharli",
+        "district": "Jhajjar",
+        "state": "Haryana",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 29.356944,
+          "longitude": 75.867222
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 500",
+        "capacityMW": 1500,
+        "operator": "Aravali Power Company India Limited",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 7542360,
+          "sox": 59787,
+          "nox": 22995,
+          "pm": 9198
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Raj West Lignite Power Plant",
+      "location": {
+        "city": "Barmer",
+        "district": "Barmer",
+        "state": "Rajasthan",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 25.888889,
+          "longitude": 71.323611
+        }
+      },
+      "technical": {
+        "unitCapacities": "8 x 135",
+        "capacityMW": 1080,
+        "operator": "JSW Energy",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5430499,
+          "sox": 43047,
+          "nox": 16556,
+          "pm": 6623
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Feroj Gandhi Unchahar Thermal Power Plant",
+      "location": {
+        "city": "Unchahar",
+        "district": "Raebareli",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 25.914444,
+          "longitude": 81.325833
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 x 210",
+        "capacityMW": 1050,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5279652,
+          "sox": 41851,
+          "nox": 16097,
+          "pm": 6439
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Parichha Thermal Power Station",
+      "location": {
+        "city": "Parichha",
+        "district": "Jhansi",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 25.514167,
+          "longitude": 78.76
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 110, 2 x 210, 2 x 250",
+        "capacityMW": 1140,
+        "operator": "UPRVUNL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5732194,
+          "sox": 45438,
+          "nox": 17476,
+          "pm": 6990
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Lalitpur Thermal Power Station",
+      "location": {
+        "city": "Mehroni",
+        "district": "Lalitpur",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 25.514722,
+          "longitude": 78.759444
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 660",
+        "capacityMW": 1980,
+        "operator": "Bajaj Hindustan Ltd.",
+        "sector": "Joint"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 9955915,
+          "sox": 78919,
+          "nox": 30353,
+          "pm": 12141
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Deenbandhu Chhotu Ram Thermal Power Station",
+      "location": {
+        "city": "Yamuna Nagar",
+        "district": "Yamuna Nagar",
+        "state": "Haryana",
+        "region": "Northern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 300",
+        "capacityMW": 600,
+        "operator": "HPGCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 3016944,
+          "sox": 23915,
+          "nox": 9198,
+          "pm": 3679
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Chhabra Thermal Power Plant",
+      "location": {
+        "city": "Mothipura",
+        "district": "Baran",
+        "state": "Rajasthan",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 24.620556,
+          "longitude": 77.036111
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 250",
+        "capacityMW": 500,
+        "operator": "RVUNL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2514120,
+          "sox": 19929,
+          "nox": 7665,
+          "pm": 3066
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Tanda Thermal Power Plant",
+      "location": {
+        "city": "Vidyutnagar",
+        "district": "Ambedkar Nagar",
+        "state": "Uttar Pradesh",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 26.589444,
+          "longitude": 82.601111
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 110",
+        "capacityMW": 440,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2212426,
+          "sox": 17538,
+          "nox": 6745,
+          "pm": 2698
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Barsingsar Thermal Power Station",
+      "location": {
+        "city": "Barsingsar",
+        "district": "Bikaner",
+        "state": "Rajasthan",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 27.819167,
+          "longitude": 73.207778
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 125",
+        "capacityMW": 250,
+        "operator": "NLC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1257060,
+          "sox": 9965,
+          "nox": 3833,
+          "pm": 1533
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Giral Lignite Power Plant",
+      "location": {
+        "city": "Thumbli",
+        "district": "Barmer",
+        "state": "Rajasthan",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 26.045556,
+          "longitude": 71.253611
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 125",
+        "capacityMW": 250,
+        "operator": "RVUNL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1257060,
+          "sox": 9965,
+          "nox": 3833,
+          "pm": 1533
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "VS Lignite Power Plant",
+      "location": {
+        "city": "Gurha",
+        "district": "Bikaner",
+        "state": "Rajasthan",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 27.855,
+          "longitude": 72.856111
+        }
+      },
+      "technical": {
+        "unitCapacities": "1 x 135",
+        "capacityMW": 135,
+        "operator": "KSK Energy Ventures",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 678812,
+          "sox": 5381,
+          "nox": 2070,
+          "pm": 828
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Faridabad Thermal Power Station",
+      "location": {
+        "city": "Faridabad",
+        "district": "Faridabad",
+        "state": "Haryana",
+        "region": "Northern",
+        "coordinates": {
+          "latitude": 28.374444,
+          "longitude": 77.305833
+        }
+      },
+      "technical": {
+        "unitCapacities": "1 x 55",
+        "capacityMW": 55,
+        "operator": "HPGCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 276553,
+          "sox": 2192,
+          "nox": 843,
+          "pm": 337
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Barh Super Thermal Power Station",
+      "location": {
+        "city": "Barh",
+        "district": "Patna",
+        "state": "Bihar",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 25.242778,
+          "longitude": 87.263333
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 660, 2 x 660",
+        "capacityMW": 3300,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 16593192,
+          "sox": 131531,
+          "nox": 50589,
+          "pm": 20236
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Talcher Super Thermal Power Station",
+      "location": {
+        "city": "Kaniha",
+        "district": "Angul",
+        "state": "Odisha",
+        "region": "Eastern, Southern",
+        "coordinates": {
+          "latitude": 21.096944,
+          "longitude": 85.075
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 500, 4 X 500",
+        "capacityMW": 3000,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 15084720,
+          "sox": 119574,
+          "nox": 45990,
+          "pm": 18396
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sterlite Jharsuguda Power Station",
+      "location": {
+        "city": "Jharsuguda",
+        "district": "Jharsuguda",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 21.813611,
+          "longitude": 84.039722
+        }
+      },
+      "technical": {
+        "unitCapacities": "4x600",
+        "capacityMW": 2400,
+        "operator": "Vedanta",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 12067776,
+          "sox": 95659,
+          "nox": 36792,
+          "pm": 14717
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Mejia Thermal Power Station",
+      "location": {
+        "city": "Durlavpur",
+        "district": "Bankura",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 23.463056,
+          "longitude": 87.130833
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 210, 2 x 250, 2 x 500",
+        "capacityMW": 2340,
+        "operator": "DVC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 11766082,
+          "sox": 93268,
+          "nox": 35872,
+          "pm": 14349
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Kahalgaon Super Thermal Power Station",
+      "location": {
+        "city": "Kahalgaon",
+        "district": "Bhagalpur",
+        "state": "Bihar",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 25.242778,
+          "longitude": 87.263333
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 210, 3 x 500",
+        "capacityMW": 2340,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 11766082,
+          "sox": 93268,
+          "nox": 35872,
+          "pm": 14349
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Farakka Super Thermal Power Station",
+      "location": {
+        "city": "Farakka",
+        "district": "Murshidabad",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 24.773056,
+          "longitude": 87.895278
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 200, 2 x 500, 1 x 500",
+        "capacityMW": 2100,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 10559304,
+          "sox": 83702,
+          "nox": 32193,
+          "pm": 12877
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Nabinagar Super Thermal Power Project",
+      "location": {
+        "city": "Nabinagar",
+        "district": "Aurangabad",
+        "state": "Bihar",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 25.242778,
+          "longitude": 87.263333
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 660",
+        "capacityMW": 1980,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 9955915,
+          "sox": 78919,
+          "nox": 30353,
+          "pm": 12141
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Vedanta Jharsuguda Captive Power Plant",
+      "location": {
+        "city": "Jharsuguda",
+        "district": "Jharsuguda",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 21.785556,
+          "longitude": 84.055
+        }
+      },
+      "technical": {
+        "unitCapacities": "9x135",
+        "capacityMW": 1215,
+        "operator": "Vedanta",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6109312,
+          "sox": 48427,
+          "nox": 18626,
+          "pm": 7450
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Kolaghat Thermal Power Station",
+      "location": {
+        "city": "Mecheda",
+        "district": "East Midnapore",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 22.416667,
+          "longitude": 87.870833
+        }
+      },
+      "technical": {
+        "unitCapacities": "6 x 210",
+        "capacityMW": 1260,
+        "operator": "WBPDCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6335582,
+          "sox": 50221,
+          "nox": 19316,
+          "pm": 7726
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Angul Thermal Power Station",
+      "location": {
+        "city": "Angul",
+        "district": "Angul",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 21.124722,
+          "longitude": 84.980833
+        }
+      },
+      "technical": {
+        "unitCapacities": "2x600",
+        "capacityMW": 1200,
+        "operator": "Jindal India Thermal Power",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "National Aluminium Company Captive Power Plant",
+      "location": {
+        "city": "Angul",
+        "district": "Angul",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 20.853056,
+          "longitude": 85.190556
+        }
+      },
+      "technical": {
+        "unitCapacities": "10 x 120",
+        "capacityMW": 1200,
+        "operator": "NALCO",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Kamalanga Thermal Power Plant",
+      "location": {
+        "city": "Dhenkanal",
+        "district": "Dhenkanal",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 20.873333,
+          "longitude": 85.274444
+        }
+      },
+      "technical": {
+        "unitCapacities": "3x350",
+        "capacityMW": 1050,
+        "operator": "GMR Group",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5279652,
+          "sox": 41851,
+          "nox": 16097,
+          "pm": 6439
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Bakreshwar Thermal Power Station",
+      "location": {
+        "city": "Suri",
+        "district": "Birbhum",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 23.828611,
+          "longitude": 87.451667
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 x 210",
+        "capacityMW": 1050,
+        "operator": "WBPDCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5279652,
+          "sox": 41851,
+          "nox": 16097,
+          "pm": 6439
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Maithon Power Plant",
+      "location": {
+        "city": "Maithon",
+        "district": "Dhanbad",
+        "state": "Jharkhand",
+        "region": "Eastern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 X 525",
+        "capacityMW": 1050,
+        "operator": "DVC, Tata Power",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5279652,
+          "sox": 41851,
+          "nox": 16097,
+          "pm": 6439
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Durgapur Steel Thermal Power Station",
+      "location": {
+        "city": "Durgapur",
+        "district": "Bardhaman",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 23.463056,
+          "longitude": 87.130833
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 500",
+        "capacityMW": 1000,
+        "operator": "DVC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5028240,
+          "sox": 39858,
+          "nox": 15330,
+          "pm": 6132
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Koderma Thermal Power Station",
+      "location": {
+        "city": "Kodarma",
+        "district": "Koderma",
+        "state": "Jharkhand",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 23.463056,
+          "longitude": 87.130833
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 500",
+        "capacityMW": 1000,
+        "operator": "DVC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5028240,
+          "sox": 39858,
+          "nox": 15330,
+          "pm": 6132
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Bhartiya Rail Bijlee Company Limited (BRBCL)",
+      "location": {
+        "city": "Nabinagar",
+        "district": "Aurangabad",
+        "state": "Bihar",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 25.242778,
+          "longitude": 87.263333
+        }
+      },
+      "technical": {
+        "unitCapacities": "4x 250",
+        "capacityMW": 1000,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5028240,
+          "sox": 39858,
+          "nox": 15330,
+          "pm": 6132
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Ib Thermal Power Station",
+      "location": {
+        "city": "Banharpali",
+        "district": "Jharsuguda",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 21.689722,
+          "longitude": 83.86
+        }
+      },
+      "technical": {
+        "unitCapacities": "8 x 120",
+        "capacityMW": 960,
+        "operator": "OPGCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 4827110,
+          "sox": 38264,
+          "nox": 14717,
+          "pm": 5887
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Barauni Thermal Power Station",
+      "location": {
+        "city": "Barauni",
+        "district": "Begusarai",
+        "state": "Bihar",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 25.399722,
+          "longitude": 86.022222
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 50, 2 x 105, 2 x 250",
+        "capacityMW": 810,
+        "operator": "NTPC",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 4072874,
+          "sox": 32285,
+          "nox": 12417,
+          "pm": 4967
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Budge Budge Thermal Power Plant",
+      "location": {
+        "city": "Budge Budge",
+        "district": "South 24 Paraganas",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 22.469167,
+          "longitude": 88.139722
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 250",
+        "capacityMW": 750,
+        "operator": "CESCL",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 3771180,
+          "sox": 29894,
+          "nox": 11498,
+          "pm": 4599
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Kanti Thermal Power Station",
+      "location": {
+        "city": "Kanti",
+        "district": "Muzaffarpur",
+        "state": "Bihar",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 26.194722,
+          "longitude": 85.301667
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 110, 2 x 195",
+        "capacityMW": 610,
+        "operator": "NTPC",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 3067226,
+          "sox": 24313,
+          "nox": 9351,
+          "pm": 3741
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sagardighi Thermal Power Station",
+      "location": {
+        "city": "Monigram",
+        "district": "Murshidabad",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 24.378889,
+          "longitude": 88.095556
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 300 2X 500",
+        "capacityMW": 1600,
+        "operator": "WBPDCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 8045184,
+          "sox": 63773,
+          "nox": 24528,
+          "pm": 9811
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Talcher Thermal Power Station",
+      "location": {
+        "city": "Talcher",
+        "district": "Angul",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 20.911389,
+          "longitude": 85.2075
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 60, 2 x 110",
+        "capacityMW": 460,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2312990,
+          "sox": 18335,
+          "nox": 7052,
+          "pm": 2821
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Bandel Thermal Power Station",
+      "location": {
+        "city": "Bandel",
+        "district": "Hooghly",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 22.995556,
+          "longitude": 88.403611
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 60, 1 x 210",
+        "capacityMW": 450,
+        "operator": "WBPDCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2262708,
+          "sox": 17936,
+          "nox": 6899,
+          "pm": 2759
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Jojobera Thermal Power Plant",
+      "location": {
+        "city": "Jojobera",
+        "district": "East Singhbhum",
+        "state": "Jharkhand",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 22.755833,
+          "longitude": 86.249167
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 120, 1x67.5",
+        "capacityMW": 427.5,
+        "operator": "Tata Power",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2149573,
+          "sox": 17039,
+          "nox": 6554,
+          "pm": 2621
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Tenughat Thermal Power Station",
+      "location": {
+        "city": "Lalpania",
+        "district": "Bokaro",
+        "state": "Jharkhand",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 23.727222,
+          "longitude": 85.764722
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 210",
+        "capacityMW": 420,
+        "operator": "TVNL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2111861,
+          "sox": 16740,
+          "nox": 6439,
+          "pm": 2575
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Hirakud Captive Power Plant",
+      "location": {
+        "city": "Hirakud",
+        "district": "Sambalpur",
+        "state": "Odisha",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 21.785556,
+          "longitude": 84.055
+        }
+      },
+      "technical": {
+        "unitCapacities": "1 x 67.5, 3 x 100",
+        "capacityMW": 367.5,
+        "operator": "Hindalco Industries",
+        "sector": "Private CPP"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1847878,
+          "sox": 14648,
+          "nox": 5634,
+          "pm": 2254
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Titagarh Thermal Power Station",
+      "location": {
+        "city": "Titagarh",
+        "district": "North 24 Paraganas",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 22.732222,
+          "longitude": 88.369722
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 60",
+        "capacityMW": 240,
+        "operator": "CESCL",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1206778,
+          "sox": 9566,
+          "nox": 3679,
+          "pm": 1472
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "CESC Southern Generating Station",
+      "location": {
+        "city": "Kolkata",
+        "district": "Kolkata",
+        "state": "West Bengal",
+        "region": "Eastern",
+        "coordinates": {
+          "latitude": 22.549444,
+          "longitude": 88.291389
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 67.5",
+        "capacityMW": 135,
+        "operator": "CESCL",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 678812,
+          "sox": 5381,
+          "nox": 2070,
+          "pm": 828
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "NTPC Ramagundam",
+      "location": {
+        "city": "Ramagundam",
+        "district": "Peddapalli",
+        "state": "Telangana",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 18.758611,
+          "longitude": 79.454722
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 200, 4 x 500",
+        "capacityMW": 2600,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 13073424,
+          "sox": 103631,
+          "nox": 39858,
+          "pm": 15943
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Simhadri Super Thermal Power Plant",
+      "location": {
+        "city": "Visakhapatnam",
+        "district": "Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 17.593889,
+          "longitude": 83.089722
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 500",
+        "capacityMW": 2000,
+        "operator": "NTPC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 10056480,
+          "sox": 79716,
+          "nox": 30660,
+          "pm": 12264
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Neyveli Thermal Power Station II",
+      "location": {
+        "city": "Neyveli",
+        "district": "Cuddalore",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 11.557778,
+          "longitude": 79.441944
+        }
+      },
+      "technical": {
+        "unitCapacities": "7 x 210, 2 x 250",
+        "capacityMW": 1970,
+        "operator": "NLC",
+        "sector": "Central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 9905633,
+          "sox": 78520,
+          "nox": 30200,
+          "pm": 12080
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Dr Narla Tatarao TPS",
+      "location": {
+        "city": "Ibrahimpatnam",
+        "district": "Krishna",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 16.599444,
+          "longitude": 80.536667
+        }
+      },
+      "technical": {
+        "unitCapacities": "6 x 210, 1 x 500 1 x 800",
+        "capacityMW": 2560,
+        "operator": "APGENCO",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 12872294,
+          "sox": 102036,
+          "nox": 39245,
+          "pm": 15698
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Raichur Thermal Power Station",
+      "location": {
+        "city": "Shaktinagar",
+        "district": "Raichur",
+        "state": "Karnataka",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 16.355556,
+          "longitude": 77.343333
+        }
+      },
+      "technical": {
+        "unitCapacities": "7 x 210, 1 x 250",
+        "capacityMW": 1720,
+        "operator": "KPCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 8648573,
+          "sox": 68556,
+          "nox": 26368,
+          "pm": 10547
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sri Damodaram Sanjeevaiah Thermal Power Station",
+      "location": {
+        "city": "Krishnapatnam",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 14.3275,
+          "longitude": 80.120833
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 800",
+        "capacityMW": 1600,
+        "operator": "APPDCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 8045184,
+          "sox": 63773,
+          "nox": 24528,
+          "pm": 9811
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Vallur Thermal Power Station",
+      "location": {
+        "city": "Vallur",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "3 x 500",
+        "capacityMW": 1500,
+        "operator": "NTPC & TNEB",
+        "sector": "State & central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 7542360,
+          "sox": 59787,
+          "nox": 22995,
+          "pm": 9198
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Sembcorp Gayatri Power Complex",
+      "location": {
+        "city": "Krishnapatnam",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 14.329167,
+          "longitude": 80.140833
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 660",
+        "capacityMW": 2640,
+        "operator": "SGPC",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 13274554,
+          "sox": 105225,
+          "nox": 40471,
+          "pm": 16188
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Udupi Power Plant",
+      "location": {
+        "city": "Nandicoor",
+        "district": "Udupi",
+        "state": "Karnataka",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 13.146944,
+          "longitude": 74.800556
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 600",
+        "capacityMW": 1200,
+        "operator": "Adani Power[26]",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Singareni Thermal Power Plant",
+      "location": {
+        "city": "Pegadapalli",
+        "district": "Mancherial",
+        "state": "Telangana",
+        "region": "Southern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 600",
+        "capacityMW": 1200,
+        "operator": "Singareni Collieries Company",
+        "sector": "PSU"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Adani Thermal Power Plant",
+      "location": {
+        "city": "Godda",
+        "district": "Godda",
+        "state": "Jharkhand",
+        "region": "Eastern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 660",
+        "capacityMW": 1320,
+        "operator": "Adani Power Jharkhand Limited",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6637277,
+          "sox": 52613,
+          "nox": 20236,
+          "pm": 8094
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Tuticorin Thermal Power Station",
+      "location": {
+        "city": "Tuticorin",
+        "district": "Tuticorin",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 8.762222,
+          "longitude": 78.175556
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 x 210",
+        "capacityMW": 1050,
+        "operator": "TNEB",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5279652,
+          "sox": 41851,
+          "nox": 16097,
+          "pm": 6439
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Rayalaseema Thermal Power Station",
+      "location": {
+        "city": "Kadapa",
+        "district": "Kadapa",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 14.703889,
+          "longitude": 78.458056
+        }
+      },
+      "technical": {
+        "unitCapacities": "5 x 210",
+        "capacityMW": 1050,
+        "operator": "APGENCO",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5279652,
+          "sox": 41851,
+          "nox": 16097,
+          "pm": 6439
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "NTPL Thermal Power Station",
+      "location": {
+        "city": "Thoothukudi",
+        "district": "Thoothukudi",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 500",
+        "capacityMW": 1000,
+        "operator": "NLC & TNEB",
+        "sector": "State & central"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 5028240,
+          "sox": 39858,
+          "nox": 15330,
+          "pm": 6132
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "JSW Vijayanagar Power Station",
+      "location": {
+        "city": "Toranagallu",
+        "district": "Bellary",
+        "state": "Karnataka",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 15.181667,
+          "longitude": 76.676667
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 130, 2 x 300",
+        "capacityMW": 860,
+        "operator": "JSW Energy",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 4324286,
+          "sox": 34278,
+          "nox": 13184,
+          "pm": 5274
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Mettur Thermal Power Station",
+      "location": {
+        "city": "Mettur",
+        "district": "Salem",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 11.771944,
+          "longitude": 77.813611
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 210, 1 x 600",
+        "capacityMW": 1440,
+        "operator": "TNEB",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 7240666,
+          "sox": 57396,
+          "nox": 22075,
+          "pm": 8830
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "North Chennai Thermal Power Station",
+      "location": {
+        "city": "Athipattu",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 13.253333,
+          "longitude": 80.328056
+        }
+      },
+      "technical": {
+        "unitCapacities": "3 x 210, 2 x 600",
+        "capacityMW": 1830,
+        "operator": "TNEB",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 9201679,
+          "sox": 72940,
+          "nox": 28054,
+          "pm": 11222
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Mutiara Thermal Power Plant",
+      "location": {
+        "city": "Thoothukudi",
+        "district": "Thoothukudi",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 600",
+        "capacityMW": 1200,
+        "operator": "Coastal Energen Private Limited (CEPL)",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Cuddalore IL&FS Thermal Power Station",
+      "location": {
+        "city": "Cuddalore",
+        "district": "Cuddalore",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 600",
+        "capacityMW": 1200,
+        "operator": "IL&FS Tamil Nadu Power Company Limited (ITPCL)",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 6033888,
+          "sox": 47830,
+          "nox": 18396,
+          "pm": 7358
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Simhapuri Thermal Power Station",
+      "location": {
+        "city": "Krishnapatnam",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 14.209722,
+          "longitude": 80.089722
+        }
+      },
+      "technical": {
+        "unitCapacities": "4 x 150",
+        "capacityMW": 600,
+        "operator": "Simhapuri Energy Limited",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 3016944,
+          "sox": 23915,
+          "nox": 9198,
+          "pm": 3679
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Hinduja Thermal Power Station",
+      "location": {
+        "city": "Devada",
+        "district": "Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 17.5625,
+          "longitude": 83.1375
+        }
+      },
+      "technical": {
+        "unitCapacities": "1 x 525",
+        "capacityMW": 525,
+        "operator": "Hinduja National Power Corporation Limited",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2639826,
+          "sox": 20925,
+          "nox": 8048,
+          "pm": 3219
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Kakatiya Thermal Power Station",
+      "location": {
+        "city": "Chelpur",
+        "district": "Warangal",
+        "state": "Telangana",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 18.383889,
+          "longitude": 79.828333
+        }
+      },
+      "technical": {
+        "unitCapacities": "1 x 500",
+        "capacityMW": 500,
+        "operator": "TSGENCO",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 2514120,
+          "sox": 19929,
+          "nox": 7665,
+          "pm": 3066
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Bellary Thermal Power station",
+      "location": {
+        "city": "Kudatini",
+        "district": "Bellary",
+        "state": "Karnataka",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 15.193611,
+          "longitude": 76.721111
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 500 1x700",
+        "capacityMW": 1700,
+        "operator": "KPCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 8548008,
+          "sox": 67759,
+          "nox": 26061,
+          "pm": 10424
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Yermarus Thermal Power Station",
+      "location": {
+        "city": "Yermarus",
+        "district": "Raichur",
+        "state": "Karnataka",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 16.294167,
+          "longitude": 77.355278
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 800",
+        "capacityMW": 1600,
+        "operator": "KPCL",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 8045184,
+          "sox": 63773,
+          "nox": 24528,
+          "pm": 9811
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Ind-Barath Thermal Power Plant",
+      "location": {
+        "city": "Tuticorin",
+        "district": "Tuticorin",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": null
+      },
+      "technical": {
+        "unitCapacities": "2 x 150",
+        "capacityMW": 300,
+        "operator": "Ind-Barath Power Infra Limited",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1508472,
+          "sox": 11957,
+          "nox": 4599,
+          "pm": 1840
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Meenakshi Power Plant",
+      "location": {
+        "city": "Krishnapatnam",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 14.215833,
+          "longitude": 80.088611
+        }
+      },
+      "technical": {
+        "unitCapacities": "2 x 150",
+        "capacityMW": 300,
+        "operator": "MEPL",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1508472,
+          "sox": 11957,
+          "nox": 4599,
+          "pm": 1840
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Neyveli Zero Lignite Power Station",
+      "location": {
+        "city": "Neyveli",
+        "district": "Cuddalore",
+        "state": "Tamil Nadu",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 11.5425,
+          "longitude": 79.415833
+        }
+      },
+      "technical": {
+        "unitCapacities": "1 x 250",
+        "capacityMW": 250,
+        "operator": "TAQA",
+        "sector": "Private"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 1257060,
+          "sox": 9965,
+          "nox": 3833,
+          "pm": 1533
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    },
+    {
+      "name": "Ramagundam B Thermal Power Station",
+      "location": {
+        "city": "Ramagundam",
+        "district": "Karimnagar",
+        "state": "Telangana",
+        "region": "Southern",
+        "coordinates": {
+          "latitude": 18.725278,
+          "longitude": 79.513056
+        }
+      },
+      "technical": {
+        "unitCapacities": "1 x 62.5",
+        "capacityMW": 62.5,
+        "operator": "TSGENCO",
+        "sector": "State"
+      },
+      "emissions": {
+        "annual": {
+          "co2": 314265,
+          "sox": 2491,
+          "nox": 958,
+          "pm": 383
+        },
+        "intensity": {
+          "co2": 820,
+          "sox": 6.5,
+          "nox": 2.5,
+          "pm": 1
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "totalStations": 108,
+    "regions": [
+      "Western",
+      "Eastern",
+      "Northern",
+      "Eastern, Southern",
+      "Southern"
+    ],
+    "emissionsDisclaimer": "Emissions are estimated based on standard factors and may vary from actual emissions",
+    "emissionsUnits": {
+      "annual": {
+        "co2": "metric tons/year",
+        "sox": "metric tons/year",
+        "nox": "metric tons/year",
+        "pm": "metric tons/year"
+      },
+      "intensity": {
+        "co2": "g/kWh",
+        "sox": "g/kWh",
+        "nox": "g/kWh",
+        "pm": "g/kWh"
+      }
+    },
+    "calculationAssumptions": {
+      "plantLoadFactor": 0.7,
+      "emissionFactors": {
+        "co2": "0.82 kg/kWh",
+        "sox": "6.5 g/kWh",
+        "nox": "2.5 g/kWh",
+        "pm": "1.0 g/kWh"
+      }
+    },
+    "lastUpdated": "2025-01-14",
+    "excludes": "Retired/scrapped stations (marked with $)"
+  }
+}
