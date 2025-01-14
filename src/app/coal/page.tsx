@@ -5,15 +5,16 @@ import CoalMap from '@/components/map/CoalMap';
 import NewsSection from '@/components/NewsSection';
 import { Button } from '@/components/ui/button';
 import { Share2 } from 'lucide-react';
+import Footer from '@/components/Footer';
 
 export default function CoalPage() {
   return (
-    <div className="min-h-screen bg-slate-50 w-full pb-12">
+    <div className="min-h-screen bg-slate-50 w-full">
       <div className="max-w-3xl mx-auto">
         {/* Hero Section */}
         <div className="text-center pt-8 pb-12">
           <h1 className="font-serif text-4xl font-bold mb-4 text-slate-800 leading-tight">
-            The Hidden Cost of Coal Power in India
+            The Hidden Cost of Coal Power in India 🏭
           </h1>
           <p className="font-serif text-xl text-slate-600">
             Every breath we take is being affected by untreated coal power plants in our neighborhood.
@@ -22,7 +23,7 @@ export default function CoalPage() {
 
         {/* Problem Section */}
         <div className="px-5 py-5 bg-white">
-          <h2 className="font-serif text-2xl font-bold mb-6 text-slate-800">Understanding the Problem</h2>
+          <h2 className="font-serif text-2xl font-bold mb-6 text-slate-800">⚠️ Understanding the Problem</h2>
           <div className="space-y-6">
             <p className="text-lg text-slate-600">
               Imagine breathing in smoke from 100s of cigarettes every day. That&apos;s what living near an untreated coal power plant feels like.
@@ -38,6 +39,7 @@ export default function CoalPage() {
 
         {/* Map Section */}
         <div className="px-5 py-8">
+          <h2 className="font-serif text-2xl font-bold mb-6 text-slate-800">🗺️ Power Plant Map</h2>
           <div className="aspect-[4/3] w-full">
             <CoalMap />
           </div>
@@ -45,17 +47,17 @@ export default function CoalPage() {
 
         {/* Solution Section */}
         <div className="mb-8">
-          <h2 className="font-serif text-2xl font-bold mb-6 text-slate-800">What Can We Do?</h2>
+          <h2 className="font-serif text-2xl font-bold mb-6 text-slate-800">💡 What Can We Do?</h2>
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
             <p className="text-lg text-slate-600 mb-4">
               The solution is simple: Power plants need to install air cleaning equipment. The government has rules for this, but many plants don&apos;t follow them.
             </p>
             <p className="text-lg text-slate-600 mb-8">
-              Your voice can make a difference. Sign our petition asking the government to enforce these rules strictly.
+              Your voice can make a difference. Join our community to stay updated and take action together.
             </p>
             <div className="space-y-3">
-              <Button size="lg" className="w-full bg-orange-600 hover:bg-orange-700 text-lg h-14">
-                Sign the Petition
+              <Button size="lg" className="w-full bg-orange-600 hover:bg-orange-700 text-lg h-14" onClick={() => window.open('https://t.me/fightpollution', '_blank')}>
+                Join Telegram Group
               </Button>
               <Button size="lg" variant="outline" className="w-full flex items-center justify-center gap-2 text-lg h-14 border-slate-200">
                 <Share2 className="w-5 h-5" />
@@ -67,7 +69,7 @@ export default function CoalPage() {
 
         {/* Impact Section */}
         <div className="px-5 py-5 my-8 mb-12 bg-white">
-          <h2 className="font-serif text-2xl font-bold mb-8 text-slate-800">Why Your Action Matters</h2>
+          <h2 className="font-serif text-2xl font-bold mb-8 text-slate-800">🎯 Why Your Action Matters</h2>
           <div className="space-y-4">
             <div className="p-6 rounded-xl border border-slate-300">
               <h3 className="font-serif font-bold text-xl mb-2 text-slate-800">1. Create Awareness</h3>
@@ -86,6 +88,9 @@ export default function CoalPage() {
 
         {/* News Section */}
         <NewsSection />
+      </div>
+      <div className="bg-gray-800">
+        <Footer />
       </div>
     </div>
   );

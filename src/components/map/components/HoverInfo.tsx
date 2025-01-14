@@ -1,5 +1,11 @@
 import React from 'react'
 
+interface HoverValue {
+  name: string
+  value: number
+  [key: string]: unknown
+}
+
 interface HoverInfoProps {
   position: {
     x: number
@@ -8,40 +14,43 @@ interface HoverInfoProps {
   active: boolean
   valueTitle?: string
   name: string
-  value: any
-  hoverComponent?: any
+  value: number
+  hoverComponent?: React.ComponentType<{ value: HoverValue }>
 }
 
 class HoverInfo extends React.Component<HoverInfoProps> {
-  refHoverInfo: any
+  private refHoverInfo: React.RefObject<HTMLDivElement>
+
+  constructor(props: HoverInfoProps) {
+    super(props)
+    this.refHoverInfo = React.createRef<HTMLDivElement>()
+  }
 
   render() {
     const hoverInfoStyle = {
       left: this.props.position.x - 50,
-      top: this.props.position.y - (this.refHoverInfo?.offsetHeight ?? 0) - 20,
+      top: this.props.position.y - (this.refHoverInfo.current?.offsetHeight ?? 0) - 20,
       display: this.props.active ? 'block' : 'none',
     }
 
     const HoverComponent = this.props.hoverComponent
     return (
       <div
-        ref={(ref) => (this.refHoverInfo = ref)}
+        ref={this.refHoverInfo}
         className="HoverInfo"
         style={hoverInfoStyle}
       >
-        {this.props.hoverComponent ? (
+        {HoverComponent ? (
           <HoverComponent
-            value={{ ...this.props.value, name: this.props.name }}
+            value={{ name: this.props.name, value: this.props.value }}
           />
         ) : (
           <>
             <p>{this.props.name}</p>
-            {isFinite(this.props.value) && (
-              <p>
-                {this.props.valueTitle ? `${this.props.valueTitle}: ` : ''}
-                {this.props.value}
-              </p>
-            )}
+            <p>
+              {this.props.valueTitle ? `${this.props.valueTitle}: ` : ''}
+              {this.props.value.toLocaleString()}
+            </p>
           </>
         )}
         <style>{`

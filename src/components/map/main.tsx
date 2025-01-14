@@ -4,8 +4,38 @@ import React from 'react'
 import ReactDatamaps from './'
 import "./styles.css"
 
+interface StateData {
+  totalCapacity: number;
+  powerStations: Array<{
+    name: string;
+    technical: {
+      capacityMW: number;
+      operator: string;
+      sector: string;
+    };
+    emissions: {
+      annual: {
+        co2: number;
+        sox: number;
+        nox: number;
+        pm: number;
+      };
+    };
+  }>;
+  totalEmissions: {
+    co2: number;
+    sox: number;
+    nox: number;
+    pm: number;
+  };
+}
+
 interface Props {
-  regionData?: Record<string, { value: number }>;
+  regionData?: Record<string, { 
+    value: number;
+    name?: string;
+    stateData?: StateData;
+  }>;
   mapLayout?: {
     title: string;
     legendTitle: string;
@@ -17,7 +47,13 @@ interface Props {
     hoverBorderColor?: string;
     hoverColor?: string;
   };
-  hoverComponent?: React.ComponentType<{ value: { name: string; value: number } }>;
+  hoverComponent?: React.ComponentType<{ 
+    value: { 
+      name: string; 
+      value: number;
+      stateData?: StateData;
+    } 
+  }>;
 }
 
 const IndiaMap: React.FC<Props> = ({ 
