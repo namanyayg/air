@@ -14,6 +14,7 @@ import {
   Tooltip,
   TooltipItem,
 } from 'chart.js';
+import { LocationSearch } from './LocationSearch';
 
 // Register ChartJS components
 ChartJS.register(
@@ -369,6 +370,7 @@ export const LocationAwareHeader = () => {
   const { airQuality, setAirQuality } = useAirQuality();
   const [localAQIData, setLocalAQIData] = useState<AirQualityData | null>(null);
   const [currentLocation, setCurrentLocation] = useState<{latitude: number, longitude: number} | null>(null);
+  const [isUpdatingLocation, setIsUpdatingLocation] = useState(false);
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -408,15 +410,30 @@ export const LocationAwareHeader = () => {
     fetchInitialData();
   }, [setAirQuality]);
 
+  const handleLocationUpdate = (isLoading: boolean) => {
+    setIsUpdatingLocation(isLoading);
+    if (isLoading) {
+      // Clear current data to show loading state
+      setLocalAQIData(null);
+    }
+  };
+
   return (
     <div>
       <h1 className="text-2xl font-bold text-gray-300 text-center mb-6">Air Quality Health Report</h1>
-      <DangerLevel 
-        {...(localAQIData || airQuality)} 
-        setLocalAQIData={setLocalAQIData}
-        setAirQuality={setAirQuality}
-        currentLocation={currentLocation}
-      />
+      {isUpdatingLocation ? (
+        <LoadingSkeleton />
+      ) : (
+        <DangerLevel 
+          {...(localAQIData || airQuality)} 
+          setLocalAQIData={setLocalAQIData}
+          setAirQuality={setAirQuality}
+          currentLocation={currentLocation}
+        />
+      )}
+      <div className="my-4 mb-8">
+        <LocationSearch onLocationUpdate={handleLocationUpdate} />
+      </div>
     </div>
   );
 };

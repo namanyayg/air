@@ -142,45 +142,45 @@ const LungComparison: React.FC = () => {
   return (
     <div className="max-w-md mx-auto mt-20">
       <h2 className="text-2xl font-bold text-white text-center mb-2 flex items-center justify-center gap-2">
-        Your Organs Are Damaged 🤕
+        Your Health is at Risk - But You Can Act 🛡️
       </h2>
       
       <div className="text-center mb-6">
         <div className="text-gray-200">
-          Every breath adds permanent damage.<br/>
-          Your lungs can never fully recover from this exposure
+          Every breath in polluted air affects your health.<br/>
+          But there are ways to protect yourself and your loved ones.
         </div>
       </div>
 
       <div className="flex gap-6 mb-6">
         <Lung 
           aqi={10} 
-          label="Healthy Lung"
-          description="Clean air"
+          label="Protected Lung"
+          description="With action"
         />
         <Lung 
           aqi={400} 
-          label="Your Lung Now"
-          description="Toxic air"
+          label="Exposed Lung"
+          description="Without protection"
         />
       </div>
 
-      {/* Emotional Impact Section */}
+      {/* Impact Section with Hope */}
       <div className="space-y-4 mt-8">
         <ImpactCard 
           icon={Clock}
-          title="Irreversible Damage"
-          description="These toxic particles never leave your lungs, causing permanent scarring with every breath"
+          title="Take Action Now"
+          description="Using air purifiers and wearing masks can significantly reduce your exposure to harmful particles"
         />
         
         <ImpactCard 
           icon={Heart}
-          title="Lost Life Years"
-          description="Each day in this air reduces your life expectancy. Your family loses precious time with you"
+          title="Protect Your Future"
+          description="Small actions today like monitoring air quality and staying informed help safeguard your family's health"
         />
       </div>
 
-      <ShareButton text="Share & Spread the Awareness" />
+      <ShareButton text="Share & Help Others Stay Safe" />
     </div>
   );
 };

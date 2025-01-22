@@ -74,6 +74,29 @@ const NewbornImpactSection: React.FC = () => {
   );
 };
 
+// Utility function to check if location is in India
+const isIndianLocation = (airQuality: any) => {
+  // If city name contains "India", it's definitely in India
+  if (airQuality.city?.toLowerCase().includes('india')) {
+    return true;
+  }
+
+  // Check coordinates if available
+  // India's approximate bounding box:
+  // Lat: 6.5546° N to 35.6745° N
+  // Long: 68.1113° E to 97.3953° E
+  if (airQuality.coordinates) {
+    const lat = airQuality.coordinates.latitude;
+    const lon = airQuality.coordinates.longitude;
+    return (
+      lat >= 6.5546 && lat <= 35.6745 &&
+      lon >= 68.1113 && lon <= 97.3953
+    );
+  }
+
+  return false;
+};
+
 // Main Dashboard Component
 const ToxicAirDashboard: React.FC = () => {
   const [startTime] = useState<number>(Date.now());
@@ -88,9 +111,10 @@ const ToxicAirDashboard: React.FC = () => {
         <LungVisualization />
         <AgeImpact aqi={airQuality.aqi} />
         <HopeSection />
-        {/* <AQITable airData={airTableData} /> */}
-        <NewbornImpactSection />
-        <ShareButton text="Share & Spread Awareness for Babies" color="emerald" icon={Shield} />
+        {isIndianLocation(airQuality) && <NewbornImpactSection />}
+        {isIndianLocation(airQuality) && (
+          <ShareButton text="Share & Spread Awareness for Babies" color="emerald" icon={Shield} />
+        )}
         <ImmunityMythSection />
         <ShareButton text="Share and STOP this myth" color="emerald" icon={Shield} />
         <StatsCounter startTime={startTime} />

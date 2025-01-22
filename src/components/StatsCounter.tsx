@@ -70,11 +70,6 @@ export default function StatsCounter({ startTime }: StatsCounterProps) {
           label="Toxic Breaths Taken" 
           value={<span className="font-mono">{stats.breaths.toLocaleString()}</span>} 
         />
-        <DamageStat 
-          icon={<Skull className="w-5 h-5 text-red-500" />} 
-          label="Indians Died Since You Arrived" 
-          value={<span className="font-mono">{stats.deaths.toFixed(1)}</span>} 
-        />
       </div>
     </div>
   );
