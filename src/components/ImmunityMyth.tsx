@@ -9,12 +9,12 @@ const ImmunityMythSection = () => {
           &quot;Immunity&quot; is a Myth 🤦‍♂️
         </h2>
         <p className="text-gray-400">
-          &quot;I&apos;m used to pollution now, my body has adapted&quot;
+          Our bodies don&apos;t develop immunity to air pollution - but we can protect ourselves
         </p>
       </div>
 
       {/* Visual Comparison */}
-      <div className="relative flex items-center justify-center mb-8">
+      <div className="relative flex items-center justify-center mb-12">
         {/* First circle representing false immunity belief */}
         <div className="relative w-32 h-32">
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-700/20 border-2 border-blue-500/50">
@@ -77,21 +77,20 @@ const ImmunityMythSection = () => {
         </div>
       </div>
 
-      {/* Explanation Cards */}
-      <div className="space-y-4">
-        <div className="bg-red-500/10 rounded-lg p-4">
-          <h3 className="text-white font-bold mb-2">Your Body Never Adapts</h3>
-          <p className="text-gray-300 text-sm">
-            Each toxic particle stays trapped in your lungs forever, building up day after day
-          </p>
-        </div>
-
-        <div className="bg-red-500/10 rounded-lg p-4">
-          <h3 className="text-white font-bold mb-2">Your Children Suffer More</h3>
-          <p className="text-gray-300 text-sm">
-            Kids&apos; developing lungs are especially vulnerable - there is no &quot;getting used to&quot; poison
-          </p>
-        </div>
+      {/* Educational Message */}
+      <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 text-gray-300 space-y-4">
+        <p>
+          Our bodies don&apos;t develop immunity to air pollution. Continuous exposure leads to health risks.
+        </p>
+        <p className="text-emerald-400 font-medium">
+          Protect yourself:
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-gray-200">
+          <li>Use air purifiers</li>
+          <li>Wear masks outdoors</li>
+          <li>Monitor air quality</li>
+          <li>Support clean air initiatives</li>
+        </ul>
       </div>
 
       <style jsx>{`

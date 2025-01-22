@@ -23,35 +23,35 @@ export default function PollutantsTable({ measurements, colors }: PollutantsTabl
       value: measurements?.pm25?.v, 
       unit: "μg/m³",
       icon: <Cloud className="w-4 h-4" />,
-      explanation: "Tiny particles that penetrate deep into your lungs and bloodstream, causing respiratory issues"
+      explanation: "Fine particles - use air purifiers indoors"
     },
     { 
       name: "PM10", 
       value: measurements?.pm10?.v, 
       unit: "μg/m³",
       icon: <AlertCircle className="w-4 h-4" />,
-      explanation: "Larger dust particles that irritate your throat and eyes"
+      explanation: "Larger particles - wear masks outdoors"
     },
     { 
       name: "CO", 
       value: measurements?.co?.v, 
       unit: "mg/m³",
       icon: <Heart className="w-4 h-4" />,
-      explanation: "Reduces oxygen in your blood, causing headaches and dizziness"
+      explanation: "Carbon monoxide - ensure good ventilation"
     },
     { 
       name: "NO₂", 
       value: measurements?.no2?.v, 
       unit: "ppb",
       icon: <Brain className="w-4 h-4" />,
-      explanation: "Inflames your airways and makes breathing difficult"
+      explanation: "Vehicle emissions - avoid high-traffic areas"
     },
     { 
       name: "SO₂", 
       value: measurements?.so2?.v, 
       unit: "ppb",
       icon: <Cloud className="w-4 h-4" />,
-      explanation: "Burns your throat and damages plants and buildings"
+      explanation: "Industrial emissions - check daily forecasts"
     }
   ];
 

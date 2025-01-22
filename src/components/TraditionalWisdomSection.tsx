@@ -67,11 +67,11 @@ export default function TraditionalWisdomSection() {
           description={<>
             <p className="mb-2">When AQI is high:</p>
             <ul className="list-disc pl-4">
-              <li>Exercise indoors with air purifiers</li>
-              <li>Best time: 11 AM - 4 PM (when pollution is lower)</li>
-              <li>Wear N95 mask for outdoor activities</li>
-              <li>Focus on gentle exercises like yoga</li>
-              <li>Stay well hydrated</li>
+              <li>Exercise with air purifiers</li>
+              <li>Best time: 11 AM - 4 PM</li>
+              <li>Wear N95 mask</li>
+              <li>Do gentle yoga</li>
+              <li>Stay hydrated</li>
             </ul>
           </>}
         />

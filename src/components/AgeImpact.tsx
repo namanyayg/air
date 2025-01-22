@@ -30,44 +30,44 @@ export default function AgeImpact({ aqi }: AgeImpactProps) {
       color: "border-orange-500/30",
       icon: User,
       impacts: [
-        "Regular exercise in filtered air spaces can boost immunity",
-        "Using air quality apps helps make informed outdoor activity choices",
-        "Air purifiers at home/work reduce exposure by up to 90%"
+        "Exercise in filtered spaces",
+        "Use air quality apps",
+        "Install air purifiers"
       ],
-      emotional: "Your actions today shape your health tomorrow. Small changes make a big difference."
+      emotional: "Small changes make a big difference."
     },
     adult: {
       title: "Adults (25-44)",
       color: "border-red-500/30",
       icon: Brain,
       impacts: [
-        "Air purifiers improve work productivity and focus",
-        "Regular indoor exercise maintains cardiovascular health",
-        "Using masks outdoors significantly reduces exposure"
+        "Use air purifiers at work",
+        "Exercise indoors",
+        "Wear masks outdoors"
       ],
-      emotional: "Protect your health and inspire others to take action."
+      emotional: "Take action, inspire others."
     },
     middle: {
       title: "Middle Age (45-64)",
       color: "border-purple-500/30",
       icon: Heart,
       impacts: [
-        "Regular health check-ups help monitor and protect heart health",
-        "Indoor air filtration supports respiratory wellness",
-        "Community action creates cleaner air for everyone"
+        "Regular health check-ups",
+        "Indoor air filtration",
+        "Join community action"
       ],
-      emotional: "Your experience and voice can help create positive change in your community."
+      emotional: "Your voice matters."
     },
     senior: {
       title: "Seniors (65+)",
       color: "border-red-500/30",
       icon: Activity,
       impacts: [
-        "Indoor air purification creates a safe space for daily activities",
-        "Regular gentle exercise in filtered air maintains health",
-        "Monitoring air quality helps plan safer outdoor activities"
+        "Indoor air purification",
+        "Gentle indoor exercise",
+        "Monitor air quality"
       ],
-      emotional: "Simple protective measures help you stay active and healthy with your loved ones."
+      emotional: "Stay active and healthy."
     }
   };
 

@@ -27,50 +27,50 @@ export default function HopeSection() {
   return (
     <section>
       <h2 className="text-2xl font-bold mb-2 text-center">
-        There is still hope&hellip; 🤞
+        Take Action 🤞
       </h2>
       
       <div className="space-y-4">
         <p className="text-gray-200 text-center mb-6">
-          The problem isn&apos;t natural - it&apos;s caused by humans.<br />
-          That means we can fix it through action.
+          Air pollution is human-made.<br />
+          We can fix it together.
         </p>
         
         <div className="space-y-4">
           <HopeCard
             icon={User}
-            title="What You Can Do Today"
+            title="Act Now"
             description={<>
-              • <a href={`https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`} className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Share this site</a> with family &amp; friends<br />
-              • Install air purifiers at home &amp; office<br />
-              • Wear N95 masks when outdoors<br />
-              • Connect with local NGOs to drive change<br />
-              • Support clean air initiatives in your area
+              • <a href={`https://api.whatsapp.com/send/?text=${shareText}&type=custom_url&app_absent=0`} className="text-emerald-500 underline hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Share this site</a><br />
+              • Install air purifiers<br />
+              • Wear N95 masks<br />
+              • Join local NGOs<br />
+              • Support clean air projects
             </>}
           />
           
           <HopeCard
             icon={Brain}
-            title="Join the Movement"
+            title="Join Organizations"
             description={<>
-              • <a href="https://a-pag.org" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">A-PAG</a>: Works with government to implement air pollution solutions<br />
-              • <a href="https://www.cleanairfund.org/where-we-work/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Fund</a>: Partners with government and business at every level<br />
-              • <a href="https://cleanairasia.org/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Asia</a>: Provides scientific input for better air quality
+              • <a href="https://a-pag.org" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">A-PAG</a>: Government policy action<br />
+              • <a href="https://www.cleanairfund.org/where-we-work/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Fund</a>: Business partnerships<br />
+              • <a href="https://cleanairasia.org/india/" className="text-emerald-500 hover:text-emerald-400" target="_blank" rel="noopener noreferrer">Clean Air Asia</a>: Scientific solutions
             </>}
           />
 
           <HopeCard
             icon={AlertTriangle}
-            title="What Causes Air Pollution?"
+            title="Main Causes"
             description={<>
-              • Burning of coal, petrol, diesel &amp; gas in industries<br />
-              • Vehicle emissions &amp; increasing traffic<br />
-              • Large-scale construction activity<br />
-              • Crop burning in neighboring states<br />
+              • Coal & fuel burning<br />
+              • Vehicle emissions<br />
+              • Construction dust<br />
+              • Crop burning<br />
             </>}
           />
           
-          <ShareButton text="Share With Your Family" color="emerald" icon={User} />
+          <ShareButton text="Share With Family" color="emerald" icon={User} />
         </div>
       </div>
     </section>

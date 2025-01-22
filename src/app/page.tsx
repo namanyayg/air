@@ -41,9 +41,9 @@ const getColorClasses = (aqi: number) => {
 const NewbornImpactSection: React.FC = () => {
   return (
     <section>
-      <div className="bg-black/50 backdrop-blur-xl rounded-lg p-6 border border-red-500/30">
-        <h2 className="text-2xl font-bold mb-4 text-center text-red-400">
-          Our Newborns Are Dying
+      <div className="bg-black/50 backdrop-blur-xl rounded-lg p-6 border border-emerald-500/30">
+        <h2 className="text-2xl font-bold mb-4 text-center text-emerald-400">
+          Protect Our Children
         </h2>
         
         <div className="flex flex-wrap justify-center gap-1 mb-6">
@@ -51,23 +51,24 @@ const NewbornImpactSection: React.FC = () => {
             <div key={i} className="relative">
               {i === 0 ? (
                 <div>
-                  <span className="text-4xl">💔</span>
+                  <span className="text-4xl">👶</span>
                 </div>
               ) : (
                 <div>
-                  <span className="text-4xl">❤️</span>
+                  <span className="text-4xl">🛡️</span>
                 </div>
               )}
             </div>
           ))}
         </div>
 
-        <p className="text-center text-lg font-semibold text-red-400 mb-4">
-          1 in 5 infant deaths in India
+        <p className="text-center text-lg font-semibold text-emerald-400 mb-4">
+          Act for their future
         </p>
 
         <p className="text-gray-300 text-center">
-          Air pollution is killing our most vulnerable.<br/>Each breath they take in their first moments contains toxic particles.
+          Clean air is their right.<br/>
+          Join our community action.
         </p>
       </div>
     </section>

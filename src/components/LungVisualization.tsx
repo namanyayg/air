@@ -142,25 +142,25 @@ const LungComparison: React.FC = () => {
   return (
     <div className="max-w-md mx-auto mt-20">
       <h2 className="text-2xl font-bold text-white text-center mb-2 flex items-center justify-center gap-2">
-        Your Health is at Risk - But You Can Act 🛡️
+        Take Action Today 🛡️
       </h2>
       
       <div className="text-center mb-6">
         <div className="text-gray-200">
-          Every breath in polluted air affects your health.<br/>
-          But there are ways to protect yourself and your loved ones.
+          Air quality affects every breath.<br/>
+          See how your lungs look.
         </div>
       </div>
 
       <div className="flex gap-6 mb-6">
         <Lung 
           aqi={10} 
-          label="Protected Lung"
-          description="With action"
+          label="Protected"
+          description="With protection"
         />
         <Lung 
           aqi={400} 
-          label="Exposed Lung"
+          label="Exposed"
           description="Without protection"
         />
       </div>
@@ -169,14 +169,14 @@ const LungComparison: React.FC = () => {
       <div className="space-y-4 mt-8">
         <ImpactCard 
           icon={Clock}
-          title="Take Action Now"
-          description="Using air purifiers and wearing masks can significantly reduce your exposure to harmful particles"
+          title="Protect Yourself"
+          description="Use air purifiers and masks to reduce exposure"
         />
         
         <ImpactCard 
           icon={Heart}
-          title="Protect Your Future"
-          description="Small actions today like monitoring air quality and staying informed help safeguard your family's health"
+          title="Stay Safe"
+          description="Monitor air quality and stay informed"
         />
       </div>
 
